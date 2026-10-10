@@ -225,6 +225,29 @@
   footer{margin-top:70px;border-top:1px solid var(--line);padding:36px 0 60px;text-align:center;color:var(--ink2);font-size:13.5px}
   footer .name{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:6px}
   footer .note{margin-top:12px;font-size:12px;color:#9B978F}
+
+  /* ---------- 目录 / 内文跳转 ---------- */
+  .toc{margin:0 0 8px;padding:18px 20px;background:var(--panel);border:1px solid var(--line);
+       border-radius:var(--radius);position:sticky;top:0;z-index:50;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+  .toc-title{font-size:12px;letter-spacing:.2em;color:var(--ink2);margin-bottom:12px;font-weight:600}
+  .toc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .toc-item{display:flex;flex-direction:column;gap:7px;padding:14px 14px;border:1px solid var(--line);
+            border-radius:10px;background:var(--bg);transition:.18s;min-width:0}
+  .toc-item:hover{border-color:var(--accent);background:#FDF6F2;transform:translateY(-2px)}
+  .toc-item:active{transform:translateY(0)}
+  .toc-no{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.1em}
+  .toc-name{font-size:13px;color:var(--ink);line-height:1.5;font-weight:500}
+  .toc-item:hover .toc-name{color:var(--accent)}
+  @media(max-width:760px){.toc-grid{grid-template-columns:repeat(2,1fr)}}
+  /* 锚点跳转时给 sticky 目录留白 */
+  section{scroll-margin-top:96px}
+  #expB{scroll-margin-top:96px}
+  .jump{color:var(--accent);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--accent);padding:0 1px}
+  .jump:hover{background:#FBEAE2}
+  .jump::after{content:" ↗";font-size:.82em}
+  /* 对照组 B 六张数据卡：3 列 × 2 行 */
+  .shot-strip.cols3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:640px){.shot-strip.cols3{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -247,6 +270,18 @@
   </div>
 </header>
 
+<!-- ================= 目录（可点击跳转） ================= -->
+<nav class="toc" aria-label="作品集目录">
+  <div class="toc-title">目录 · 点感兴趣的板块直接跳转</div>
+  <div class="toc-grid">
+    <a class="toc-item" href="#s1"><span class="toc-no">01</span><span class="toc-name">内容方法论：我的对照实验</span></a>
+    <a class="toc-item" href="#s2"><span class="toc-no">02</span><span class="toc-name">大广节学院奖策划案《别让痒占上风》</span></a>
+    <a class="toc-item" href="#s3"><span class="toc-no">03</span><span class="toc-name">小红书 · 11 篇笔记</span></a>
+    <a class="toc-item" href="#s4"><span class="toc-no">04</span><span class="toc-name">品牌视频《一席四季，岭南礼遇》</span></a>
+    <a class="toc-item" href="#s5"><span class="toc-no">05</span><span class="toc-name">抖音 · 31 条作品</span></a>
+  </div>
+</nav>
+
 <!-- ================= 01 数据方法论 ================= -->
 <section id="s1">
   <div class="sec-head"><span class="sec-no">01</span><h2>内容方法论：我的对照实验</h2></div>
@@ -266,14 +301,14 @@
   <div class="card">
     <h3>实验 A · 翻唱期：热点与修音的单变量对照</h3>
     <p><b>对照组 A · 跟热点</b>——22 条清唱中，我跟风当时热点的其中一条，在<b>内容质量一般</b>的情况下拿到 1075 播放；同期五条同质量的日常作品播放为 17 / 75 / 104 / 520 / 442（均值约 232），跟热点那条约为同期均值的 <b class="num">4.6 倍</b>。</p>
-    <p><b>对照组 B · 修音</b>——相邻两条作品只差「修音」一个变量：修过的那条<b class="num">播放量多出近 400，点赞由 10 增至 22</b>，且点赞转化率高于近一个月的平均水平。作品截图见「05 · 抖音」。</p>
+    <p><b>对照组 B · 修音</b>——相邻两条作品只差「修音」一个变量：修过的那条<b class="num">播放量多出近 400，点赞由 10 增至 22</b>，且点赞转化率高于近一个月的平均水平。作品截图见<a class="jump" href="#s5">「05 · 抖音」</a>。</p>
     <div class="chips">
       <span class="chip">同一时期、同一演唱者与字幕形式保持一致</span>
       <span class="chip">画面形式（风景氛围 / 纯录屏）有观察但未完成对照 → 暂不下结论</span>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" id="expB">
     <h3>实验 B · 随笔期：一条完整的时间序列</h3>
     <p>换赛道本身就是最大的一次变量调整：翻唱期同期均值约 232 浏览，随笔期 6 条均值约 <b class="num">2620 浏览</b>，抬了一个数量级。下面是随笔期 7 条内容的完整序列——每一步只动一个变量，<b>数据均来自账号后台</b>。</p>
     <div class="timeline">
@@ -553,26 +588,26 @@
       </div>
     </div>
     <p class="zoom-tip" style="margin-top:14px">六条作品的创作者后台原始数据卡（点击放大）：</p>
-    <div class="shot-strip">
+    <div class="shot-strip cols3">
       <figure class="shot wide">
         <img src="assets/dy_card_hot.jpg" data-full="assets/full/dy_card_hot.png" loading="lazy" alt="跟热点作品后台数据卡">
-        <figcaption>跟热点 · KTV 合拍《最好的我》<span class="s-n">1075 播放</span></figcaption>
+        <figcaption>跟热点 · 《最好的我+50feet》<span class="s-n">1075 播放</span></figcaption>
       </figure>
       <figure class="shot wide">
         <img src="assets/dy_card_c520.jpg" data-full="assets/full/dy_card_c520.png" loading="lazy" alt="同期对照 520 播放数据卡">
-        <figcaption>同期 · 《水一期》翻唱<span class="s-n mute">520 播放</span></figcaption>
+        <figcaption>同期 · 《一个人想着一个人》翻唱<span class="s-n mute">520 播放</span></figcaption>
       </figure>
       <figure class="shot wide">
         <img src="assets/dy_card_c442.jpg" data-full="assets/full/dy_card_c442.png" loading="lazy" alt="同期对照 442 播放数据卡">
-        <figcaption>同期 · 《一种悲伤》翻唱<span class="s-n mute">442 播放</span></figcaption>
+        <figcaption>同期 · 《有一种悲伤》翻唱<span class="s-n mute">442 播放</span></figcaption>
       </figure>
       <figure class="shot wide">
         <img src="assets/dy_card_c104.jpg" data-full="assets/full/dy_card_c104.png" loading="lazy" alt="同期对照 104 播放数据卡">
-        <figcaption>同期 · 《珍惜当下》翻唱<span class="s-n mute">104 播放</span></figcaption>
+        <figcaption>同期 · 《海屿你》翻唱<span class="s-n mute">104 播放</span></figcaption>
       </figure>
       <figure class="shot wide">
         <img src="assets/dy_card_c75.jpg" data-full="assets/full/dy_card_c75.png" loading="lazy" alt="同期对照 75 播放数据卡">
-        <figcaption>同期 · 《枯木犹有逢春日》<span class="s-n mute">75 播放</span></figcaption>
+        <figcaption>同期 · 《春》翻唱<span class="s-n mute">75 播放</span></figcaption>
       </figure>
       <figure class="shot wide">
         <img src="assets/dy_card_c17.jpg" data-full="assets/full/dy_card_c17.png" loading="lazy" alt="同期对照 17 播放数据卡">
@@ -594,7 +629,7 @@
 
   <div class="card">
     <h3>随笔期 · 7 条完整序列（每一步只改一个变量）</h3>
-    <p>从幽默记叙文起步，逐步改字数、换文体、换情绪方向，直到最后用 AI 翻拍做反向验证。下表是全部读数，解读见 01 板块的实验 B。</p>
+    <p>从幽默记叙文起步，逐步改字数、换文体、换情绪方向，直到最后用 AI 翻拍做反向验证。下表是全部读数，解读见<a class="jump" href="#expB">01 板块的实验 B</a>。</p>
     <table class="dtable">
       <thead>
         <tr><th>#</th><th>这一轮改了什么</th><th>字数</th><th>浏览</th><th>赞</th><th>评 / 藏</th></tr>
