@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蒋宏鹏 · 作品集 | 新媒体运营 / 内容方向</title>
+<style>
+  :root{
+    --bg:#F7F5F1; --panel:#FFFFFF; --ink:#1B1B1D; --ink2:#5A5A5F; --line:#E7E2D9;
+    --accent:#B4532A; --green:#2F5D50; --gold:#8C6A2F;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+    line-height:1.75; font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1020px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent);text-decoration:none}
+  img{display:block;max-width:100%;border-radius:10px}
+  .num{font-variant-numeric:tabular-nums}
+
+  /* ---------- hero ---------- */
+  header.hero{padding:84px 0 56px;border-bottom:1px solid var(--line)}
+  .kicker{font-size:13px;letter-spacing:.35em;color:var(--accent);font-weight:600;margin-bottom:18px}
+  h1{font-size:clamp(30px,6vw,46px);line-height:1.25;font-weight:700;letter-spacing:.01em}
+  h1 .thin{color:var(--ink2);font-weight:400}
+  .hero .pos{margin-top:14px;font-size:16px;color:var(--ink2)}
+  .hero .method{
+    margin-top:30px;padding:20px 24px;border-left:3px solid var(--accent);
+    background:var(--panel);border-radius:0 var(--radius) var(--radius) 0;
+    font-size:19px;font-weight:600;
+  }
+  .hero .method small{display:block;margin-top:6px;font-size:13.5px;font-weight:400;color:var(--ink2)}
+  .contact{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:14.5px;color:var(--ink2)}
+  .contact b{color:var(--ink);font-weight:600}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0 8px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  .sec-no{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.12em}
+  h2{font-size:clamp(22px,4vw,28px);font-weight:700}
+  .sec-sub{color:#45454B;font-size:15.5px;line-height:1.85;margin-bottom:26px;max-width:760px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px}
+  .tag{font-size:12.5px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink2);background:var(--panel)}
+  .tag.hl{border-color:var(--accent);color:var(--accent);font-weight:600}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;margin-bottom:20px}
+  .card h3{font-size:18px;margin-bottom:10px}
+  .card p{color:#3D3D42;font-size:15.5px;line-height:1.85}
+  .card p+p{margin-top:10px}
+  .card p b, .card li b{color:var(--ink)}
+
+  /* ---------- data experiment ---------- */
+  .conclusion{
+    margin:26px 0;padding:22px 26px;border-radius:var(--radius);
+    background:linear-gradient(135deg,#2F5D50,#1F4237);color:#fff;
+  }
+  .conclusion .lab{font-size:12px;letter-spacing:.3em;opacity:.75;margin-bottom:8px}
+  .conclusion .big{font-size:clamp(18px,3.4vw,24px);font-weight:700;line-height:1.5}
+  .conclusion .big em{font-style:normal;color:#F2C879}
+
+  .timeline{margin:22px 0 8px}
+  .tl-item{
+    display:grid;grid-template-columns:44px 1fr;gap:16px;
+    padding:0 0 22px 0;position:relative;
+  }
+  .tl-item::before{
+    content:"";position:absolute;left:20px;top:34px;bottom:-2px;width:2px;background:var(--line);
+  }
+  .tl-item:last-child::before{display:none}
+  .tl-dot{
+    width:42px;height:42px;border-radius:50%;background:var(--panel);
+    border:2px solid var(--line);display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:15px;color:var(--ink2);z-index:1;
+  }
+  .tl-item.peak .tl-dot{border-color:var(--accent);color:var(--accent)}
+  .tl-body{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px}
+  .tl-body .t{font-weight:600;font-size:16px;margin-bottom:5px;line-height:1.6}
+  .tl-body .v{font-size:14px;color:#45454B;line-height:1.8}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .chip{font-size:12px;padding:3px 10px;border-radius:6px;background:#F1EDE6;color:var(--ink2)}
+  .chip.up{background:#FBEAE2;color:var(--accent);font-weight:600}
+  .chip.down{background:#E8F0EC;color:var(--green);font-weight:600}
+  .tl-item.peak .tl-body{border-color:var(--accent);box-shadow:0 2px 14px rgba(180,83,42,.08)}
+  .tl-item.peak .t{color:var(--accent)}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:760px){.two-col{grid-template-columns:1fr}}
+
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+  @media(max-width:600px){.stat-row{grid-template-columns:repeat(3,1fr);gap:8px}}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 10px;text-align:center}
+  .stat .n{font-size:clamp(20px,4vw,28px);font-weight:800;color:var(--accent)}
+  .stat .l{font-size:12px;color:var(--ink2);margin-top:4px;line-height:1.4}
+
+  /* ---------- gallery ---------- */
+  .gallery{display:grid;gap:18px;margin:22px 0}
+  .gallery img{width:100%;border:1px solid var(--line);cursor:zoom-in}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:760px){.g2,.g3{grid-template-columns:1fr}}
+  figure{margin:0}
+  figure figcaption{font-size:13px;color:var(--ink2);margin-top:8px;line-height:1.6}
+  figure figcaption b{color:var(--ink)}
+  .plan-shot{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel)}
+  .plan-shot img{border-radius:0;width:100%}
+  .plan-shot figcaption{padding:12px 16px}
+
+  .xhs-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:640px){.xhs-row{grid-template-columns:1fr}}
+  .xhs-row img{width:100%;border:1px solid var(--line)}
+
+  /* ---------- video ---------- */
+  .video-wrap{
+    position:relative;max-width:420px;margin:22px auto;border-radius:var(--radius);
+    overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.14);background:#000;
+  }
+  .video-wrap video{width:100%;display:block}
+  .shotlist{margin:22px 0}
+  .shotlist ol{padding-left:22px;color:var(--ink2);font-size:15px}
+  .shotlist li{margin-bottom:6px}
+  .shotlist li b{color:var(--ink)}
+
+  .pdf-btn{
+    display:inline-flex;align-items:center;gap:8px;margin-top:6px;
+    padding:11px 22px;border-radius:999px;background:var(--accent);color:#fff;
+    font-size:14.5px;font-weight:600;
+  }
+  .pdf-btn:hover{opacity:.9}
+
+  .ver-list{list-style:none;margin:8px 0 14px}
+  .ver-list li{display:flex;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--ink2);line-height:1.7;align-items:baseline}
+  .ver-list li:last-child{border-bottom:none}
+  .ver-list .v{flex:0 0 96px;font-weight:700;color:var(--accent);font-size:13.5px;white-space:nowrap}
+
+  /* ---------- pending ---------- */
+  .pending{
+    border:1.5px dashed var(--line);border-radius:var(--radius);
+    padding:34px 26px;text-align:center;color:var(--ink2);font-size:15px;background:transparent;
+  }
+  .pending b{color:var(--ink)}
+
+  /* ---------- lightbox ---------- */
+  .plan-shot img, .xhs-row img{cursor:zoom-in}
+  .zoom-tip{font-size:12.5px;color:#9B978F;margin:10px 0 0}
+  #lb{position:fixed;inset:0;z-index:9999;background:rgba(18,18,20,.96);display:flex;flex-direction:column;color:#fff}
+  #lb[hidden]{display:none}
+  .lb-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.12);font-size:13.5px;flex-wrap:wrap}
+  .lb-idx{color:#B9B4AB;font-variant-numeric:tabular-nums}
+  .lb-ctl{margin-left:auto;display:flex;align-items:center;gap:8px}
+  .lb-ctl button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer}
+  .lb-ctl button:hover{background:rgba(255,255,255,.22)}
+  .lb-zoom{min-width:54px;text-align:center;color:#F2C879;font-variant-numeric:tabular-nums}
+  .lb-stage{flex:1;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;touch-action:none}
+  .lb-stage img{max-width:96%;max-height:100%;object-fit:contain;transform-origin:center center;user-select:none;-webkit-user-drag:none;will-change:transform}
+  .lb-cap{padding:12px 18px;font-size:13.5px;color:#DBD7D0;line-height:1.7;max-height:20vh;overflow:auto;border-top:1px solid rgba(255,255,255,.12)}
+  .lb-tip{padding:8px 18px 14px;font-size:12px;color:#8C8880}
+  .lb-nav button{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;width:44px;height:66px;font-size:26px;border-radius:10px;cursor:pointer}
+  .lb-nav .prev{left:12px}
+  .lb-nav .next{right:12px}
+  @media(max-width:600px){
+    .lb-nav button{width:34px;height:54px;font-size:20px}
+    .lb-ctl button{padding:6px 9px;font-size:12px}
+  }
+
+  /* ---------- 证据缩略图（图是佐证，文字才是主体） ---------- */
+  .shot-strip{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 4px}
+  .shot{flex:0 0 auto;width:126px;margin:0}
+  .shot img{width:100%;height:auto;aspect-ratio:9/20;object-fit:cover;object-position:top center;
+            border:1px solid var(--line);border-radius:8px;cursor:zoom-in;background:#F1EDE6}
+  .shot figcaption{font-size:11.5px;color:var(--ink2);margin-top:7px;line-height:1.5}
+  .shot .s-n{display:block;font-size:13px;font-weight:700;color:var(--accent);
+             font-variant-numeric:tabular-nums;margin-top:4px}
+  .shot .s-n.mute{color:var(--ink2)}
+  @media(max-width:640px){
+    .shot-strip{gap:10px}
+    .shot{width:calc((100% - 20px) / 3)}
+  }
+  /* 宽幅后台数据卡（横条截图） */
+  .shot.wide{width:300px}
+  .shot.wide img{aspect-ratio:auto;height:auto;object-fit:contain;background:#fff}
+  .evidence-lg{max-width:440px;margin:14px 0 4px}
+  .evidence-lg img{width:100%;border:1px solid var(--line);border-radius:10px;cursor:zoom-in;background:#fff}
+  .evidence-lg figcaption{font-size:12px;color:#8E8A83;margin-top:6px;line-height:1.6}
+  @media(max-width:640px){
+    .shot.wide{width:100%}
+  }
+
+  /* ---------- 单变量对照组 ---------- */
+  .exp{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px 18px;margin-bottom:18px}
+  .exp-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+  .exp-h .t{font-size:16.5px;font-weight:700}
+  .exp-h .v{font-size:12.5px;color:var(--accent);background:#FBEAE2;border-radius:6px;padding:2px 9px;font-weight:600}
+  .exp>p{font-size:15px;color:#3D3D42;line-height:1.8;margin:8px 0 0}
+  .exp>p b{color:var(--ink)}
+  .exp-note{font-size:13px;color:#8E8A83;margin-top:12px;line-height:1.7;
+            border-top:1px dashed var(--line);padding-top:10px}
+  .exp-note b{color:var(--ink2)}
+  .cmp{display:grid;grid-template-columns:1fr 34px 1fr;gap:10px;align-items:stretch;margin:14px 0 2px}
+  .cmp .box{border:1px solid var(--line);border-radius:10px;padding:13px 16px;background:#FCFBF9}
+  .cmp .box .lab{font-size:11.5px;letter-spacing:.08em;color:#9B978F;margin-bottom:5px}
+  .cmp .box .big{font-size:19px;font-weight:800;color:var(--ink2);font-variant-numeric:tabular-nums;line-height:1.35}
+  .cmp .box.good{border-color:rgba(180,83,42,.45);background:#FDF6F2}
+  .cmp .box.good .big{color:var(--accent)}
+  .cmp .box .desc{font-size:12.5px;color:var(--ink2);margin-top:5px;line-height:1.6}
+  .cmp .arrow{display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--accent);font-weight:700}
+  @media(max-width:620px){
+    .cmp{grid-template-columns:1fr;gap:6px}
+    .cmp .arrow{transform:rotate(90deg);height:24px}
+  }
+
+  /* ---------- 数据表格 ---------- */
+  .dtable{width:100%;border-collapse:collapse;margin:16px 0 4px;font-size:13.5px}
+  .dtable th,.dtable td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+  .dtable th{font-size:11.5px;color:#9B978F;font-weight:600;letter-spacing:.06em;white-space:nowrap}
+  .dtable td{color:var(--ink2);font-variant-numeric:tabular-nums;line-height:1.6}
+  .dtable td:first-child{color:var(--ink);font-weight:600;white-space:nowrap}
+  .dtable tr.peak td{background:#FBF3EE}
+  .dtable tr.peak td:first-child{color:var(--accent)}
+  .dtable tr.low td{color:#8E8A83}
+  @media(max-width:600px){
+    .dtable{font-size:12px}
+    .dtable th,.dtable td{padding:7px 5px}
+  }
+  footer{margin-top:70px;border-top:1px solid var(--line);padding:36px 0 60px;text-align:center;color:var(--ink2);font-size:13.5px}
+  footer .name{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:6px}
+  footer .note{margin-top:12px;font-size:12px;color:#9B978F}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="kicker">PORTFOLIO · 2026</div>
+  <h1>蒋宏鹏<span class="thin">的作品集</span></h1>
+  <p class="pos">求职方向：新媒体运营实习生（小红书 / 微信公众号 / 微博方向） · 广东外语外贸大学南国商学院 · 市场营销</p>
+  <div class="method">
+    「一次只改一个变量，让数据替我下结论。」
+    <small>下面所有案例，都是这句话在不同场景里的做法。</small>
+  </div>
+  <div class="contact">
+    <span><b>电话</b> 135-1093-2794</span>
+    <span><b>邮箱</b> 2567225634@qq.com</span>
+    <span><b>平台</b> 抖音 31 条 · 小红书 11 篇（独立运营）</span>
+  </div>
+</header>
+
+<!-- ================= 01 数据方法论 ================= -->
+<section id="s1">
+  <div class="sec-head"><span class="sec-no">01</span><h2>内容方法论：我的对照实验</h2></div>
+  <p class="sec-sub">独立运营抖音、小红书一年（2025.09 – 2026.09，断续更新），累计 42 条原创内容。我不追"爆款玄学"，只做一件事——同一段时间内只改一个变量，用前后数据验证假设。以下全部为账号后台真实数据。</p>
+
+  <div class="stat-row">
+    <div class="stat"><div class="n num">42</div><div class="l">累计原创内容<br>（抖音 31 视频 + 小红书 11 笔记）</div></div>
+    <div class="stat"><div class="n num">4283</div><div class="l">单条互动峰值<br>（58 赞 / 12 评 / 13 收藏）</div></div>
+    <div class="stat"><div class="n num">5341</div><div class="l">小红书单篇浏览峰值<br>（53 赞 / 150 评论）</div></div>
+  </div>
+
+  <div class="conclusion">
+    <div class="lab">核心结论</div>
+    <div class="big">篇幅管<em>触达</em>，情绪形态管<em>转化</em>，题材新鲜度管<em>衰退</em>。<br>热点拉得起<em>流量</em>，平台调性定<em>生死</em>。</div>
+  </div>
+
+  <div class="card">
+    <h3>实验 A · 翻唱期：热点与修音的单变量对照</h3>
+    <p><b>对照组 A · 跟热点</b>——22 条清唱中，我跟风当时热点的其中一条，在<b>内容质量一般</b>的情况下拿到 1075 播放；同期五条同质量的日常作品播放为 17 / 75 / 104 / 520 / 442（均值约 232），跟热点那条约为同期均值的 <b class="num">4.6 倍</b>。</p>
+    <p><b>对照组 B · 修音</b>——相邻两条作品只差「修音」一个变量：修过的那条<b class="num">播放量多出近 400，点赞由 10 增至 22</b>，且点赞转化率高于近一个月的平均水平。作品截图见「05 · 抖音」。</p>
+    <div class="chips">
+      <span class="chip">同一时期、同一演唱者与字幕形式保持一致</span>
+      <span class="chip">画面形式（风景氛围 / 纯录屏）有观察但未完成对照 → 暂不下结论</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>实验 B · 随笔期：一条完整的时间序列</h3>
+    <p>换赛道本身就是最大的一次变量调整：翻唱期同期均值约 232 浏览，随笔期 6 条均值约 <b class="num">2620 浏览</b>，抬了一个数量级。下面是随笔期 7 条内容的完整序列——每一步只动一个变量，<b>数据均来自账号后台</b>。</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">1</div>
+        <div class="tl-body">
+          <div class="t">幽默风趣 · 记叙文 · 1595 字</div>
+          <div class="v"><b class="num">4143 浏览 / 46 赞</b>——起点基准</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2</div>
+        <div class="tl-body">
+          <div class="t">同样幽默风趣，只砍字数 → 303 字</div>
+          <div class="v"><b class="num">4425 浏览 / 31 赞</b>——浏览微涨 7%，点赞掉了三成：短能换来一点触达，换不来认同</div>
+          <div class="chips"><span class="chip up">浏览 ↑</span><span class="chip down">点赞 ↓ 33%</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">3</div>
+        <div class="tl-body">
+          <div class="t">换成 34 字的现代短诗（模仿写法）</div>
+          <div class="v"><b class="num">1127 浏览 / 41 赞</b>——浏览掉去七成，点赞却不降反升；<b>点赞率 3.6%，是全序列最高</b>。说明内容形态决定的是「单位曝光的转化效率」，不是触达规模</div>
+          <div class="chips"><span class="chip down">浏览 ↓ 75%</span><span class="chip up">点赞 ↑ 32%</span><span class="chip up">点赞率 全期第一</span></div>
+        </div>
+      </div>
+      <div class="tl-item peak">
+        <div class="tl-dot">4</div>
+        <div class="tl-body">
+          <div class="t">感情故事 · 记叙文 · 2552 字（换赛道 + 情绪拉满）</div>
+          <div class="v"><b class="num">4283 浏览 / 58 赞 / 12 评 / 13 收藏</b>——全账号互动峰值</div>
+          <div class="chips"><span class="chip up">浏览 ↑</span><span class="chip up">点赞 ↑↑</span><span class="chip up">评论 ↑</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">5</div>
+        <div class="tl-body">
+          <div class="t">延续同一题材 · 2015 字</div>
+          <div class="v"><b class="num">867 浏览 / 19 赞</b>——浏览掉到上一条的五分之一。「延续」不等于「复现」</div>
+          <div class="chips"><span class="chip down">双降</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">6</div>
+        <div class="tl-body">
+          <div class="t">第三次同题材尝试 · 2320 字</div>
+          <div class="v"><b class="num">875 浏览 / 32 赞</b>——字数相近、质量相当，触达依旧趴在八百多 → 判断这一形式在该账号已消耗完，7 月初断更止损</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">7</div>
+        <div class="tl-body">
+          <div class="t">9 月 · AI 翻拍同风格内容</div>
+          <div class="v">仅 7 播放——反向验证：不是内容质量问题，是这一形态与抖音的快节奏分发不匹配</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>实验 C · 热点捕捉与用户维护</h3>
+      <p>DeepSeek 服务异常当天，我第一时间截图发布一句话笔记，单篇 <b class="num">5341 浏览 / 53 赞</b>；随后在评论区逐条回应<b>「好了踢我下」</b>的留言用户，累计互动 <b class="num">150</b>。</p>
+      <p style="margin-top:8px">复盘发现：这类<b>信息型内容</b>的评论区是点赞的近 3 倍——用户来评论区是「问进度」，不是表达喜欢。所以运营动作应放在评论区维护，而不是催更内容。</p>
+    </div>
+    <div class="card">
+      <h3>实验 D · 平台调性判断</h3>
+      <p><b>5 分半长叙事视频</b>在抖音、小红书均只有约 120 播放——判断这类内容应投放长视频平台，而不是硬塞进快节奏分发。</p>
+      <p style="margin-top:8px"><b>争议性话题</b>在小红书容易起量，在抖音则容易被视为「起号」引发反感——同一内容，两个平台命运不同，需要按平台调性分配。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 学院奖 ================= -->
+<section id="s2">
+  <div class="sec-head"><span class="sec-no">02</span><h2>大广节学院奖策划案《别让痒占上风》</h2></div>
+  <p class="sec-sub">中国大学生广告艺术节学院奖 2026 春季征集大赛（中国广告协会主办，覆盖全国 1830 所高校），命题品牌：芙美松（仙琚制药）。<b>最终获优秀奖。</b>策划案由我独立制作——从洞察、IP 设计到全部页面制作——实际制作约 1 个月，经历 3 次大版本重构。</p>
+  <div class="tags">
+    <span class="tag hl">优秀奖</span>    <span class="tag">原创 IP</span><span class="tag">整合营销策划</span><span class="tag">AI 物料落地</span><span class="tag">1 个月 · 3 次大版本重构</span>
+  </div>
+  <p class="zoom-tip">点击任意图片可放大查看细节——放大时加载<b>原分辨率高清图</b>，支持滚轮 / 双指缩放与拖动平移，可放到 8 倍看清物料上的小字</p>
+
+  <div class="card">
+    <h3>洞察 → 判断 → 翻转</h3>
+    <p>初版走古风水墨（从「芙美松」的芙蓉意象出发），二版转医疗清新，都差点意思。直到指导老师反馈「网感不足」，我往回推了一层：<b>医药品牌真正的障碍不是不够专业，是让人有心理防线。</b>所以解法不是把画面做精致，是先把心理防线降下来——整体改为可爱轻松风格，并把「痒」这种说不清的感受做成一只小怪物。</p>
+    <p style="margin-top:8px">核心创意概念：让芙美松充当<b>陪伴者与倾听者</b>，陪着用户把「痒」说清楚，再引导科学用药。</p>
+  </div>
+
+  <figure class="plan-shot">
+    <img src="assets/plan_ip.jpg" data-full="assets/full/plan_ip.jpg" loading="lazy" alt="IP 设计：痒痒怪">
+    <figcaption><b>IP 设定「痒痒怪」</b>——身份是痒感捣蛋鬼，出没于袖口、裤腿、被窝，口头禅「嘿嘿，我又来了」，克星是「科学判断、规范外用」。形象由 AI 提案、我筛选并反向推导出芙美松的角色定位，全套表情包同源衍生。</figcaption>
+  </figure>
+
+  <figure class="plan-shot" style="margin-top:18px">
+    <img src="assets/plan_stages.jpg" data-full="assets/full/plan_stages.jpg" loading="lazy" alt="三阶段传播链路">
+    <figcaption><b>三阶段传播链路</b>——预热期「痒怪出没」（悬念海报 + 互动测试）→ 爆发期「科学打怪」（对症打怪地图 + 皮肤守护小站，传递乳膏 / 凝胶剂型差异）→ 长尾期「守护陪伴」（7 日打卡，痒痒怪随打卡逐渐变弱），六个活动线上 + 线下成对落地。</figcaption>
+  </figure>
+
+  <div class="two-col" style="margin-top:18px">
+    <figure class="plan-shot">
+      <img src="assets/plan_giftbox.jpg" data-full="assets/full/plan_giftbox.jpg" loading="lazy" alt="周边礼盒">
+      <figcaption><b>周边礼盒「皮肤守护盒」</b>——AI 生成的场景级物料图，整体光影、构图一次成型。</figcaption>
+    </figure>
+    <figure class="plan-shot">
+      <img src="assets/plan_kit.jpg" data-full="assets/full/plan_kit.jpg" loading="lazy" alt="礼盒部分产品">
+      <figcaption><b>礼盒部分产品</b>——科普三折页、系列科普卡片与原装产品同框对比，三折页内的大段文字全部清晰可读。</figcaption>
+    </figure>
+  </div>
+
+  <div class="two-col" style="margin-top:18px">
+    <figure class="plan-shot">
+      <img src="assets/mat_zheye.jpg" data-full="assets/full/mat_zheye.jpg" loading="lazy" alt="科普三折页特写">
+      <figcaption><b>AI 物料的硬指标</b>——科普三折页这类<b>大段文字物料零乱码、每个字清晰可读</b>。AI 生图的文字乱码是公认难点，这一项靠反复筛选与调整提示词实现。</figcaption>
+    </figure>
+    <figure class="plan-shot">
+      <img src="assets/plan_merch.jpg" data-full="assets/full/plan_merch.jpg" loading="lazy" alt="周边产品矩阵">
+      <figcaption><b>周边矩阵</b>——雨伞、守护日记笔记本、钥匙扣（幼年 / 成年双版本）、帆布袋，视觉全部锚定痒痒怪主推的橙色系。</figcaption>
+    </figure>
+  </div>
+
+  <figure class="plan-shot" style="margin-top:18px">
+    <img src="assets/plan_offline.jpg" data-full="assets/full/plan_offline.jpg" loading="lazy" alt="线下活动">
+    <figcaption><b>线下活动「痒痒怪现身计划」</b>——合作药店陈列 + 社区健康服务点 + 校园健康驿站 + 商圈快闪点，五步玩法闭环到打卡领物料。</figcaption>
+  </figure>
+
+  <figure class="plan-shot" style="margin-top:18px">
+    <img src="assets/plan_final.jpg" data-full="assets/full/plan_final.jpg" loading="lazy" alt="策划案收尾页">
+    <figcaption><b>收尾页</b>——以「让每一次痒，都被温柔看见」收束全案：从年轻化共鸣，到专业化信任，回扣「芙美松 × 痒痒怪：陪你先懂痒，再科学应对」。</figcaption>
+  </figure>
+
+  <div class="card" style="margin-top:18px">
+    <h3>迭代记录</h3>
+    <ul class="ver-list">
+      <li><span class="v">beta 前瞻</span><span>做出初版阶段阐释，对应九个活动与活动目的；美工暂定古风、水墨，以「芙蓉」为出发点。</span></li>
+      <li><span class="v">v1.0</span><span>风格暂定医疗清新（蓝绿主色），内容初步成型；痒痒怪雏形出现，仅作为创意执行的一部分。</span></li>
+      <li><span class="v">v2.0</span><span>确立「可爱轻松、降低心理防线」方向；痒痒怪升格为皮肤症状的具象化、与药膏形成对比的敌害关系；活动 9 个精简为 6 个，基本页面美工定型；幼年版本诞生并定为主 IP。</span></li>
+      <li><span class="v">v3.0</span><span>整体形象向幼年痒痒怪收敛，内容精简化、更易落地；媒介提案小重做。</span></li>
+      <li><span class="v">v3.0 beta</span><span>竞品分析美工重做、强化各药品对比性；确立橙色痒痒怪为主推色。</span></li>
+      <li><span class="v">v3.2</span><span>活动页面图标与文字视觉优化，修复媒介排期内容重复。</span></li>
+      <li><span class="v">v3.3</span><span>复查全篇错字乱码，周边礼盒重做为更轻松有趣的包装，临时补封底图完善思路。</span></li>
+    </ul>
+    <a class="pdf-btn" href="assets/芙美松策划案_别让痒占上风.pdf" target="_blank">查看完整策划案 PDF（26 页）</a>
+  </div>
+</section>
+
+<!-- ================= 03 小红书 ================= -->
+<section id="s3">
+  <div class="sec-head"><span class="sec-no">03</span><h2>小红书 · 11 篇笔记</h2></div>
+  <p class="sec-sub">两条内容主线：<b>生活探店的轻量表达</b>与<b>热点 / 情绪观察</b>。从探店起步，逐渐演化出更轻、更快、更贴平台语境的表达方式。</p>
+
+  <div class="card">
+    <h3>一条表达方式的演化线</h3>
+    <p>起号时做的是<b>食堂探店</b>——用真实校园场景先把「真人感」立住；后来发现小红书的浏览语境不需要完整记录，于是把同样的生活观察压成<b>一句话 + 一张图</b>的轻量形态；遇到热点时则用最快速度出内容。</p>
+    <p style="margin-top:8px"><b>最有效的一次是热点内容</b>：DeepSeek 服务异常当天我第一时间发布，单篇 <b class="num">5341 浏览 / 53 赞 / 150 评论</b>。复盘时我发现一个更有用的东西——这类<b>信息型内容</b>的评论数是点赞的近 3 倍，因为用户来评论区是「问进度」，不是表达喜欢。所以那次我把力气放在评论区逐条回应，而不是催自己去更新。</p>
+    <p style="margin-top:8px">结论：<b>内容负责把人拉进来，评论区负责把人留下</b>。运营动作应该跟着内容类型走。</p>
+  </div>
+
+  <p class="zoom-tip">下面是 3 篇代表作缩略图，点击可放大看原文（支持滚轮 / 双指缩放）</p>
+  <div class="shot-strip">
+    <figure class="shot">
+      <img src="assets/xhs_canteen.jpg" data-full="assets/full/xhs_canteen.jpg" loading="lazy" alt="食堂探店笔记">
+      <figcaption>起点 · 食堂探店<span class="s-n">建立真人感</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/xhs_light.jpg" data-full="assets/full/xhs_light.jpg" loading="lazy" alt="轻量表达笔记">
+      <figcaption>演变 · 轻量表达<span class="s-n">一句话 + 一张图</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/xhs_deepseek.jpg" data-full="assets/full/xhs_deepseek.jpg" loading="lazy" alt="DeepSeek 崩了笔记">
+      <figcaption>高光 · DeepSeek 热点<span class="s-n">5341 / 53 / 150</span></figcaption>
+    </figure>
+  </div>
+
+  <p class="zoom-tip">下面是 3 篇笔记的小红书官方后台数据卡，点击放大可看平台原始数据</p>
+  <div class="shot-strip">
+    <figure class="shot wide">
+      <img src="assets/xhs_card_noodle.jpg" data-full="assets/full/xhs_card_noodle.png" loading="lazy" alt="南北粉面馆测评 后台数据卡">
+      <figcaption>探店线 · 南北粉面馆测评（下）<span class="s-n">875 浏览 / 19 赞</span></figcaption>
+    </figure>
+    <figure class="shot wide">
+      <img src="assets/xhs_card_milktea.jpg" data-full="assets/full/xhs_card_milktea.png" loading="lazy" alt="南国商奶茶界的神 后台数据卡">
+      <figcaption>轻量表达 · 南国商奶茶界的神<span class="s-n">594 浏览 / 14 赞 / 11 评</span></figcaption>
+    </figure>
+    <figure class="shot wide">
+      <img src="assets/xhs_card_deepseek.jpg" data-full="assets/full/xhs_card_deepseek.png" loading="lazy" alt="deepseek崩了 后台数据卡">
+      <figcaption>热点 · deepseek崩了<span class="s-n">5341 浏览 / 53 赞 / 150 评论</span></figcaption>
+    </figure>
+  </div>
+  <a class="pdf-btn" href="https://www.xiaohongshu.com/user/profile/5f29d06a0000000001002180?xsec_token=AB1PLgR6BNbdnoMSuMCqBKMmIq5AwSMlNnpSgPt4-fV6Q=&amp;xsec_source=pc_user" target="_blank" rel="noopener">前往我的小红书主页 ↗</a>
+</section>
+
+<!-- ================= 04 四季酒店 ================= -->
+<section id="s4">
+  <div class="sec-head"><span class="sec-no">04</span><h2>品牌视频《一席四季，岭南礼遇》</h2></div>
+  <p class="sec-sub">广州四季酒店品牌推广视频（文旅比赛参赛作品），<b>2 天内从脚本到成片全流程独立交付</b>。分工：AI Agent 统筹脚本构思与分镜拆解、按镜头分步下达指令；画面素材调用豆包 / 即梦生成；字幕、音乐、节奏与成片剪辑由我用剪映完成。</p>
+  <div class="tags">
+    <span class="tag">竖屏 9:16 · 1080P</span><span class="tag">7 镜头结构</span><span class="tag">Vision3 250D / Eterna 500T / Velvia 50 电影影调</span><span class="tag hl">2 天交付</span>
+  </div>
+
+  <div class="video-wrap">
+    <video controls preload="none" poster="assets/seasons_cover.jpg" src="assets/seasons_web.mp4"></video>
+  </div>
+
+  <div class="card shotlist">
+    <h3>分镜结构（藏露式叙事）</h3>
+    <ol>
+      <li><b>片头标版</b>——珠江新城清晨天际线，Vision3 250D 暖调</li>
+      <li><b>城市 → 酒店</b>——超远无缝变焦推近旋转门，「被带进去」而非「摊开看」</li>
+      <li><b>进入大堂</b>——玻璃反光 → 大理石地面 → 花艺 → 服务生，由物到人，Eterna 500T 清冷影调</li>
+      <li><b>客房空间美学</b>——慢推揭示窗外广州塔</li>
+      <li><b>服务细节</b>——双手递茶特写，手部轮廓 + 温柔注视</li>
+      <li><b>岭南美食</b>——粤式点心微距环绕，Velvia 50 超饱和食欲感</li>
+      <li><b>无边泳池 / 岭南文化</b>——黄昏水面倒影，广绣屏风收尾</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= 05 抖音（待补） ================= -->
+<section id="s5">
+  <div class="sec-head"><span class="sec-no">05</span><h2>抖音 · 31 条作品（2025.09 – 2026.09）</h2></div>
+  <p class="sec-sub">一年里发过 31 条，主要是两个阶段：<b>翻唱期 22 条清唱</b>——用两组单变量对照找出真正有用的动作；<b>随笔期 7 条</b>——一次完整的赛道切换实验。所有数据取自账号后台，截图只是佐证，可点击放大看原图。</p>
+
+  <div class="exp">
+    <div class="exp-h"><span class="t">对照组 A · 修音</span><span class="v">唯一变量：修音这一步</span></div>
+    <p>相邻发布的两条作品，同一个人、同一首歌、同一录制条件，只差「有没有修音」。</p>
+    <div class="cmp">
+      <div class="box">
+        <div class="lab">未修音</div>
+        <div class="big">852 播放 / 10 赞</div>
+        <div class="desc">相邻发布，其余条件一致</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box good">
+        <div class="lab">修音后</div>
+        <div class="big">1241 播放 / 22 赞</div>
+        <div class="desc">播放多出 389；点赞转化率高于近一个月平均水平</div>
+      </div>
+    </div>
+    <p class="zoom-tip" style="margin-top:14px">两条作品的创作者后台原始数据卡（点击放大）：</p>
+    <div class="shot-strip">
+      <figure class="shot wide">
+        <img src="assets/dy_card_xiuyin_bad.jpg" data-full="assets/full/dy_card_xiuyin_bad.png" loading="lazy" alt="未修音作品后台数据卡">
+        <figcaption>未修音 · 《路过人间》清唱<span class="s-n mute">852 播放 / 10 赞</span></figcaption>
+      </figure>
+      <figure class="shot wide">
+        <img src="assets/dy_card_xiuyin_good.jpg" data-full="assets/full/dy_card_xiuyin_good.png" loading="lazy" alt="修音后作品后台数据卡">
+        <figcaption>修音后 · 《匿名的好友》清唱<span class="s-n">1241 播放 / 22 赞</span></figcaption>
+      </figure>
+    </div>
+    <div class="shot-strip">
+      <figure class="shot">
+        <img src="assets/dy_xiuyin_bad.jpg" data-full="assets/full/dy_xiuyin_bad.jpg" loading="lazy" alt="未修音对照作品">
+        <figcaption>未修音 · 作品画面<span class="s-n mute">点赞 10</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/dy_xiuyin_good.jpg" data-full="assets/full/dy_xiuyin_good.jpg" loading="lazy" alt="修音后作品">
+        <figcaption>修音后 · 作品画面<span class="s-n">点赞 22</span></figcaption>
+      </figure>
+    </div>
+    <p class="exp-note">说明：这组数据只支持「修音有效」这一个结论。我没有做完「配伴奏」的对照组，且清唱质量本身并不稳定，所以不对外声称「配上伴奏就会更好听」。</p>
+  </div>
+
+  <div class="exp">
+    <div class="exp-h"><span class="t">对照组 B · 跟热点</span><span class="v">唯一变量：选题是否为热点</span></div>
+    <p>拿一条<b>我自己判断内容质量一般</b>的跟风热点作品，去比同期五条同水平的日常作品。</p>
+    <div class="cmp">
+      <div class="box">
+        <div class="lab">同期 5 条同质量日常作品</div>
+        <div class="big">均值约 232 播放</div>
+        <div class="desc">17 / 75 / 104 / 520 / 442</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box good">
+        <div class="lab">跟风热点（质量一般）</div>
+        <div class="big">1075 播放</div>
+        <div class="desc">约为同期均值的 4.6 倍</div>
+      </div>
+    </div>
+    <p class="zoom-tip" style="margin-top:14px">六条作品的创作者后台原始数据卡（点击放大）：</p>
+    <div class="shot-strip">
+      <figure class="shot wide">
+        <img src="assets/dy_card_hot.jpg" data-full="assets/full/dy_card_hot.png" loading="lazy" alt="跟热点作品后台数据卡">
+        <figcaption>跟热点 · KTV 合拍《最好的我》<span class="s-n">1075 播放</span></figcaption>
+      </figure>
+      <figure class="shot wide">
+        <img src="assets/dy_card_c520.jpg" data-full="assets/full/dy_card_c520.png" loading="lazy" alt="同期对照 520 播放数据卡">
+        <figcaption>同期 · 《水一期》翻唱<span class="s-n mute">520 播放</span></figcaption>
+      </figure>
+      <figure class="shot wide">
+        <img src="assets/dy_card_c442.jpg" data-full="assets/full/dy_card_c442.png" loading="lazy" alt="同期对照 442 播放数据卡">
+        <figcaption>同期 · 《一种悲伤》翻唱<span class="s-n mute">442 播放</span></figcaption>
+      </figure>
+      <figure class="shot wide">
+        <img src="assets/dy_card_c104.jpg" data-full="assets/full/dy_card_c104.png" loading="lazy" alt="同期对照 104 播放数据卡">
+        <figcaption>同期 · 《珍惜当下》翻唱<span class="s-n mute">104 播放</span></figcaption>
+      </figure>
+      <figure class="shot wide">
+        <img src="assets/dy_card_c75.jpg" data-full="assets/full/dy_card_c75.png" loading="lazy" alt="同期对照 75 播放数据卡">
+        <figcaption>同期 · 《枯木犹有逢春日》<span class="s-n mute">75 播放</span></figcaption>
+      </figure>
+      <figure class="shot wide">
+        <img src="assets/dy_card_c17.jpg" data-full="assets/full/dy_card_c17.png" loading="lazy" alt="同期对照 17 播放数据卡">
+        <figcaption>同期 · 《巴拉莱卡》清唱<span class="s-n mute">17 播放</span></figcaption>
+      </figure>
+    </div>
+    <div class="shot-strip">
+      <figure class="shot">
+        <img src="assets/dy_hot_good.jpg" data-full="assets/full/dy_hot_good.jpg" loading="lazy" alt="跟风热点作品">
+        <figcaption>跟风热点<span class="s-n">1075</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/dy_hot_bad.jpg" data-full="assets/full/dy_hot_bad.jpg" loading="lazy" alt="同期同质量对照作品">
+        <figcaption>同期日常<span class="s-n mute">对照样本</span></figcaption>
+      </figure>
+    </div>
+    <p class="exp-note">结论：<b>选题的分发权重大于精修</b>——内容一般但踩中热点，播放能到同期平均的 4.6 倍；修音带来的提升是几十个百分点。资源有限时，先押选题。</p>
+  </div>
+
+  <div class="card">
+    <h3>随笔期 · 7 条完整序列（每一步只改一个变量）</h3>
+    <p>从幽默记叙文起步，逐步改字数、换文体、换情绪方向，直到最后用 AI 翻拍做反向验证。下表是全部读数，解读见 01 板块的实验 B。</p>
+    <table class="dtable">
+      <thead>
+        <tr><th>#</th><th>这一轮改了什么</th><th>字数</th><th>浏览</th><th>赞</th><th>评 / 藏</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>①</td><td>起点基准：幽默风趣记叙文</td><td>1595</td><td>4143</td><td>46</td><td>3 / 3</td></tr>
+        <tr><td>②</td><td>只砍字数，幽默路线不变</td><td>303</td><td>4425</td><td>31</td><td>2 / 1</td></tr>
+        <tr><td>③</td><td>换文体：34 字现代短诗（模仿）</td><td>34</td><td>1127</td><td>41</td><td>2 / 4</td></tr>
+        <tr class="peak"><td>④</td><td>换题材：感情故事长文（全账号峰值）</td><td>2552</td><td>4283</td><td>58</td><td>12 / 13</td></tr>
+        <tr class="low"><td>⑤</td><td>沿用 ④ 的题材，第一次复现</td><td>2015</td><td>867</td><td>19</td><td>9 / 0</td></tr>
+        <tr class="low"><td>⑥</td><td>沿用 ④ 的题材，第二次复现</td><td>2320</td><td>875</td><td>32</td><td>2 / 4</td></tr>
+        <tr class="low"><td>⑦</td><td>反向验证：AI 翻拍同风格内容</td><td>—</td><td>7</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px"><b>三条结论：</b>① 字数改写<b>不影响</b>触达——② 砍到 303 字浏览反而微涨；② 关键在<b>情绪形态</b>——短诗用 34 字拿到全序列最高的点赞率 3.6%；③ <b>同一题材重复第三次就失效</b>——④ 到 ⑤ 浏览掉到五分之一，而 ⑥ 字数与质量都接近 ④，也只有 875。所以是「<b>篇幅管触达、情绪形态管转化、题材新鲜度管衰退</b>」。</p>
+    <p class="zoom-tip">下面是 7 条作品的后台截图缩略图，点击放大可看原分辨率（支持滚轮 / 双指缩放，最大 8 倍）</p>
+    <div class="shot-strip">
+      <figure class="shot">
+        <img src="assets/dy_s1.jpg" data-full="assets/full/dy_s1.jpg" loading="lazy" alt="第一篇随笔">
+        <figcaption>① 幽默记叙文 · 1595 字<span class="s-n">4143 / 46</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/dy_s2.jpg" data-full="assets/full/dy_s2.jpg" loading="lazy" alt="第二篇随笔">
+        <figcaption>② 只砍字数 · 303 字<span class="s-n">4425 / 31</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/dy_s3.jpg" data-full="assets/full/dy_s3.jpg" loading="lazy" alt="第三篇随笔">
+        <figcaption>③ 34 字短诗<span class="s-n">1127 / 41</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/dy_s4.jpg" data-full="assets/full/dy_s4.jpg" loading="lazy" alt="第四篇随笔">
+        <figcaption>④ 感情故事 · 2552 字<span class="s-n">4283 / 58</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/dy_s5.jpg" data-full="assets/full/dy_s5.jpg" loading="lazy" alt="第五篇随笔">
+        <figcaption>⑤ 同题材复现一<span class="s-n mute">867 / 19</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/dy_s6.jpg" data-full="assets/full/dy_s6.jpg" loading="lazy" alt="第六篇随笔">
+        <figcaption>⑥ 同题材复现二<span class="s-n mute">875 / 32</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/dy_ai.jpg" data-full="assets/full/dy_ai.jpg" loading="lazy" alt="AI 翻拍作品">
+        <figcaption>⑦ AI 翻拍反向验证<span class="s-n mute">7</span></figcaption>
+      </figure>
+    </div>
+
+    <p class="zoom-tip" style="margin-top:16px">随笔序列在创作者后台的列表总览（含播放 / 点赞 / 评论 / 完播率等完整字段，点击放大）：</p>
+    <figure class="evidence-lg">
+      <img src="assets/dy_dboard_t.jpg" data-full="assets/full/dy_dboard.jpg" loading="lazy" alt="抖音创作者后台作品列表总览">
+      <figcaption>抖音创作者后台 · 作品列表（数据与上表一致，可逐条核对）</figcaption>
+    </figure>
+  </div>
+
+  <p style="text-align:center;margin-top:26px">
+    <a class="pdf-btn" href="https://www.douyin.com/user/MS4wLjABAAAAcWyitIQMViACnuS5n_nU0sJT-AzTc8xTXHtNQCVcbKjX0Ae2-EeadtPJn2v-Z3fZ?from_tab_name=main" target="_blank" rel="noopener">前往我的抖音主页 ↗</a>
+  </p>
+</section>
+
+<footer>
+  <div class="name">蒋宏鹏</div>
+  <div>135-1093-2794 · 2567225634@qq.com</div>
+  <p class="note">本页所有账号数据均来自本人抖音 / 小红书后台真实数据 · 策划案与成片均为本人制作</p>
+</footer>
+
+</div>
+
+<!-- ================= 图片放大器 ================= -->
+<div id="lb" hidden>
+  <div class="lb-bar">
+    <span>图片查看器</span>
+    <span class="lb-idx"></span>
+    <div class="lb-ctl">
+      <button data-a="prev-btn">‹ 上一张</button>
+      <button data-a="next-btn">下一张 ›</button>
+      <button data-a="out">−</button>
+      <span class="lb-zoom">100%</span>
+      <button data-a="in">+</button>
+      <button data-a="reset">重置</button>
+      <button data-a="close">关闭 ✕</button>
+    </div>
+  </div>
+  <div class="lb-stage">
+    <img id="lb-img" alt="">
+    <div class="lb-nav">
+      <button class="prev" data-a="prev-btn" aria-label="上一张">‹</button>
+      <button class="next" data-a="next-btn" aria-label="下一张">›</button>
+    </div>
+  </div>
+  <div class="lb-cap"></div>
+  <div class="lb-tip">滚轮 / 双指缩放 · 按住拖动平移 · 双击回到原始大小 · ← → 切换 · ESC 关闭</div>
+</div>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lb-img');
+  var stage = lb.querySelector('.lb-stage');
+  var capEl = lb.querySelector('.lb-cap');
+  var idxEl = lb.querySelector('.lb-idx');
+  var zoomEl = lb.querySelector('.lb-zoom');
+
+  var items = Array.prototype.slice.call(document.querySelectorAll('figure img')).map(function (img) {
+    var fig = img.closest('figure');
+    var cap = fig ? fig.querySelector('figcaption') : null;
+    return {
+      src: img.getAttribute('data-full') || img.getAttribute('src'),
+      cap: cap ? cap.innerText.replace(/\s+/g, ' ').trim() : ''
+    };
+  });
+
+  var i = 0, scale = 1, tx = 0, ty = 0;
+  var MAX = 8, MIN = 1;
+
+  function apply() {
+    lbImg.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+    zoomEl.textContent = Math.round(scale * 100) + '%';
+  }
+
+  function open(n) {
+    i = (n + items.length) % items.length;
+    scale = 1; tx = 0; ty = 0;
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lbImg.style.opacity = '0.5';
+    lbImg.onload = function () { lbImg.style.opacity = '1'; };
+    lbImg.src = items[i].src;
+    capEl.textContent = items[i].cap || '';
+    idxEl.textContent = (i + 1) + ' / ' + items.length;
+    apply();
+  }
+
+  function close() {
+    lb.hidden = true;
+    lbImg.removeAttribute('src');
+    document.body.style.overflow = '';
+  }
+
+  function zoom(f, cx, cy) {
+    var r = stage.getBoundingClientRect();
+    var px = cx - (r.left + r.width / 2);
+    var py = cy - (r.top + r.height / 2);
+    var ns = Math.max(MIN, Math.min(MAX, scale * f));
+    var k = ns / scale;
+    tx = px - k * (px - tx);
+    ty = py - k * (py - ty);
+    scale = ns;
+    if (scale <= MIN + 0.001) { scale = 1; tx = 0; ty = 0; }
+    apply();
+  }
+
+  function zoomCenter(f) {
+    var r = stage.getBoundingClientRect();
+    zoom(f, r.left + r.width / 2, r.top + r.height / 2);
+  }
+
+  // 点击缩略图打开
+  Array.prototype.slice.call(document.querySelectorAll('figure img')).forEach(function (img, n) {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function () { open(n); });
+  });
+
+  // 控件
+  lb.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-a]');
+    if (!btn) return;
+    var a = btn.getAttribute('data-a');
+    if (a === 'close') close();
+    else if (a === 'in') zoomCenter(1.4);
+    else if (a === 'out') zoomCenter(1 / 1.4);
+    else if (a === 'reset') { scale = 1; tx = 0; ty = 0; apply(); }
+    else if (a === 'prev-btn') open(i - 1);
+    else if (a === 'next-btn') open(i + 1);
+  });
+
+  // 点击空白关闭（仅在未放大时）
+  stage.addEventListener('click', function (e) {
+    if (e.target.closest('[data-a]')) return;
+    if (scale <= 1.01) close();
+  });
+
+  // 滚轮缩放
+  stage.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    zoom(e.deltaY < 0 ? 1.18 : 1 / 1.18, e.clientX, e.clientY);
+  }, { passive: false });
+
+  // 双击：1x ↔ 2.5x
+  stage.addEventListener('dblclick', function (e) {
+    if (scale > 1.01) { scale = 1; tx = 0; ty = 0; apply(); }
+    else zoom(2.5, e.clientX, e.clientY);
+  });
+
+  // 拖动平移
+  var drag = null;
+  stage.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('[data-a]')) return;
+    drag = { x: e.clientX, y: e.clientY, tx: tx, ty: ty };
+    stage.setPointerCapture(e.pointerId);
+    lbImg.style.transition = 'none';
+  });
+  stage.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    tx = drag.tx + (e.clientX - drag.x);
+    ty = drag.ty + (e.clientY - drag.y);
+    apply();
+  });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
+    stage.addEventListener(ev, function () { drag = null; });
+  });
+
+  // 双指缩放（移动端）
+  var pts = {}, pinch = null;
+  stage.addEventListener('touchstart', function (e) {
+    if (e.touches.length === 2) {
+      var dx = e.touches[0].clientX - e.touches[1].clientX;
+      var dy = e.touches[0].clientY - e.touches[1].clientY;
+      pinch = { d: Math.hypot(dx, dy), s: scale };
+    }
+  }, { passive: true });
+  stage.addEventListener('touchmove', function (e) {
+    if (e.touches.length === 2 && pinch) {
+      e.preventDefault();
+      var dx = e.touches[0].clientX - e.touches[1].clientX;
+      var dy = e.touches[0].clientY - e.touches[1].clientY;
+      var d = Math.hypot(dx, dy);
+      var r = stage.getBoundingClientRect();
+      var cx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+      var cy = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+      var target = Math.max(MIN, Math.min(MAX, pinch.s * (d / pinch.d)));
+      zoom(target / scale, cx, cy);
+    }
+  }, { passive: false });
+  stage.addEventListener('touchend', function (e) { if (e.touches.length < 2) pinch = null; });
+
+  // 键盘
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') open(i - 1);
+    else if (e.key === 'ArrowRight') open(i + 1);
+    else if (e.key === '+' || e.key === '=') zoomCenter(1.4);
+    else if (e.key === '-') zoomCenter(1 / 1.4);
+    else if (e.key === '0') { scale = 1; tx = 0; ty = 0; apply(); }
+  });
+})();
+</script>
+</body>
+</html>
