@@ -1041,6 +1041,21 @@
       var el = document.getElementById(id);
       if(el) board.appendChild(el);
     });
+    /* 正文标题数字按阅读顺序重排为 01–06（目录仍按原编号，便于按编号跳转） */
+    var pos = {};
+    var secs = board.querySelectorAll(':scope > section[id^="s"]');
+    secs.forEach(function(s, i){
+      pos[s.id] = ('0' + (i + 1)).slice(-2);
+      var no = s.querySelector('.sec-no');
+      if(no) no.textContent = pos[s.id];
+    });
+    /* 内文引用里的板块编号同步为重排后的序号 */
+    document.querySelectorAll('a.jump').forEach(function(a){
+      var t = document.querySelector(a.getAttribute('href'));
+      if(!t) return;
+      var sec = t.closest('section[id^="s"]');
+      if(sec && pos[sec.id]) a.textContent = a.textContent.replace(/\d{2}/, pos[sec.id]);
+    });
   }
 
   /* 简历二维码带参打开：直接按该岗位重排，HR 无需自己点 */
