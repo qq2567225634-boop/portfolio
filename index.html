@@ -288,12 +288,18 @@
   @media(max-width:860px){.cap-grid{grid-template-columns:1fr}}
 
   /* ---------- 图片悬停：PPT 主色嵌套框 ---------- */
-  .shot img,.plan-shot img,.xhs-row img,.evidence-lg img,.shot.wide img{
+  .gallery img,.shot img,.xhs-row img,.evidence-lg img{
     transition:box-shadow .18s ease,border-color .18s ease}
-  .shot img:hover,.plan-shot img:hover,.xhs-row img:hover,.evidence-lg img:hover,.shot.wide img:hover{
+  .gallery img:hover,.shot img:hover,.xhs-row img:hover,.evidence-lg img:hover{
     box-shadow:0 0 0 3px var(--panel),0 0 0 5px var(--ppt),
                0 0 0 8px var(--panel),0 0 0 10px var(--ppt-lt);
     border-color:var(--ppt)}
+  /* plan-shot 的 overflow:hidden 会裁掉图片外阴影，改为整卡悬停（框住图+说明） */
+  .plan-shot{transition:box-shadow .18s ease,border-color .18s ease}
+  .plan-shot:hover{
+    border-color:var(--ppt);
+    box-shadow:0 0 0 3px var(--panel),0 0 0 5px var(--ppt),
+               0 0 0 8px var(--panel),0 0 0 10px var(--ppt-lt)}
 </style>
 </head>
 <body>
