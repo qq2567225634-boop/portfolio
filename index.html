@@ -196,6 +196,13 @@
   .exp-note{font-size:13px;color:#8E8A83;margin-top:12px;line-height:1.7;
             border-top:1px dashed var(--line);padding-top:10px}
   .exp-note b{color:var(--ink2)}
+  /* 五步流程（会展 PPT） */
+  .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0 2px}
+  .flow .step{border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:#FCFBF9;position:relative}
+  .flow .step .n{position:absolute;top:10px;right:12px;font-size:22px;font-weight:800;color:#EDE7DF;line-height:1}
+  .flow .step .st{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}
+  .flow .step .sd{font-size:12.5px;color:var(--ink2);line-height:1.65}
+  @media(max-width:640px){.flow{grid-template-columns:1fr 1fr}}
   .cmp{display:grid;grid-template-columns:1fr 34px 1fr;gap:10px;align-items:stretch;margin:14px 0 2px}
   .cmp .box{border:1px solid var(--line);border-radius:10px;padding:13px 16px;background:#FCFBF9}
   .cmp .box .lab{font-size:11.5px;letter-spacing:.08em;color:#9B978F;margin-bottom:5px}
@@ -230,7 +237,7 @@
   .toc{margin:0 0 8px;padding:18px 20px;background:var(--panel);border:1px solid var(--line);
        border-radius:var(--radius);position:sticky;top:0;z-index:50;box-shadow:0 2px 16px rgba(0,0,0,.04)}
   .toc-title{font-size:12px;letter-spacing:.2em;color:var(--ink2);margin-bottom:12px;font-weight:600}
-  .toc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px}
   .toc-item{display:flex;flex-direction:column;gap:7px;padding:14px 14px;border:1px solid var(--line);
             border-radius:10px;background:var(--bg);transition:.18s;min-width:0}
   .toc-item:hover{border-color:var(--accent);background:#FDF6F2;transform:translateY(-2px)}
@@ -301,18 +308,6 @@
   </div>
 </header>
 
-<!-- ================= 目录（可点击跳转） ================= -->
-<nav class="toc" aria-label="作品集目录">
-  <div class="toc-title">目录 · 点感兴趣的板块直接跳转</div>
-  <div class="toc-grid">
-    <a class="toc-item" href="#s1"><span class="toc-no">01</span><span class="toc-name">内容方法论：我的对照实验</span></a>
-    <a class="toc-item" href="#s2"><span class="toc-no">02</span><span class="toc-name">大广节学院奖策划案《别让痒占上风》</span></a>
-    <a class="toc-item" href="#s3"><span class="toc-no">03</span><span class="toc-name">小红书 · 11 篇笔记</span></a>
-    <a class="toc-item" href="#s4"><span class="toc-no">04</span><span class="toc-name">品牌视频《一席四季，岭南礼遇》</span></a>
-    <a class="toc-item" href="#s5"><span class="toc-no">05</span><span class="toc-name">抖音 · 31 条作品</span></a>
-  </div>
-</nav>
-
 <!-- ================= 能力地图（30 秒入口） ================= -->
 <section class="capmap" id="capmap">
   <div class="sec-head"><span class="sec-no">MAP</span><h2>能力地图：三条线，一份作品集</h2></div>
@@ -334,6 +329,7 @@
       <ul class="cap-list">
         <li>四季酒店品牌视频：2 天完成脚本、分镜、AI 画面与成片剪辑</li>
         <li>痒痒怪全套 AI 物料（IP 形象、场景、礼盒、三折页）</li>
+        <li>远华杯会展答辩 PPT：18 页 AI 提炼 + 生图全流程</li>
         <li>复杂任务拆成分步指令，沉淀可复用提示词模板</li>
       </ul>
       <span class="cap-go">看 AI 生产证据</span>
@@ -350,6 +346,19 @@
     </a>
   </div>
 </section>
+
+<!-- ================= 目录（可点击跳转） ================= -->
+<nav class="toc" aria-label="作品集目录">
+  <div class="toc-title">目录 · 点感兴趣的板块直接跳转</div>
+  <div class="toc-grid">
+    <a class="toc-item" href="#s1"><span class="toc-no">01</span><span class="toc-name">内容方法论：我的对照实验</span></a>
+    <a class="toc-item" href="#s2"><span class="toc-no">02</span><span class="toc-name">大广节学院奖策划案《别让痒占上风》</span></a>
+    <a class="toc-item" href="#s3"><span class="toc-no">03</span><span class="toc-name">小红书 · 11 篇笔记</span></a>
+    <a class="toc-item" href="#s4"><span class="toc-no">04</span><span class="toc-name">品牌视频《一席四季，岭南礼遇》</span></a>
+    <a class="toc-item" href="#s5"><span class="toc-no">05</span><span class="toc-name">抖音 · 31 条作品</span></a>
+    <a class="toc-item" href="#s6"><span class="toc-no">06</span><span class="toc-name">会展答辩 PPT（远华杯）</span></a>
+  </div>
+</nav>
 
 <!-- ================= 一稿三投 ================= -->
 <div class="pitch" id="pitch">
@@ -770,10 +779,56 @@
   </p>
 </section>
 
+<!-- ================= 06 会展答辩 PPT ================= -->
+<section id="s6">
+  <div class="sec-head"><span class="sec-no">06</span><h2>会展策划答辩 PPT：2027 贵阳（国际）数智康养产业博览会</h2></div>
+  <p class="sec-sub">第十六届「远华杯」全国大学生会展+创意大赛（会展+策划赛道）<b>初赛一等奖</b>作品。<b>策划案内容由小组共同完成</b>，我负责整套答辩 PPT 的制作：用 AI 把完整策划案浓缩成 18 页答辩逻辑，并完成视觉风格定义、AI 生图与逐页修正。答辩时间有限，这份 PPT 解决的是「怎么把 40 页策划案讲明白」。</p>
+
+  <div class="exp">
+    <div class="exp-h"><span class="t">我做的五步：从文档到答辩 PPT</span><span class="v">AI 辅助 · 人工把控每一步</span></div>
+    <div class="flow">
+      <div class="step"><div class="n">1</div><div class="st">定框架</div><div class="sd">按答辩时限给目录排优先级：挑出必须讲的章节，规划分页结构与大致框架——先决定「讲哪五件事」，再决定「每件占几页」。</div></div>
+      <div class="step"><div class="n">2</div><div class="st">逐章提炼</div><div class="sd">把重要章节一章一章交给 AI 提炼简化，提炼结果落到对应页数；不重要的章节果断砍掉，保证主线不被稀释。</div></div>
+      <div class="step"><div class="n">3</div><div class="st">定风格</div><div class="sd">把会展背景与每页要讲的内容交给 AI，让它理解 PPT 目的，反推总体配色、排版逻辑和对应页面的美工风格。</div></div>
+      <div class="step"><div class="n">4</div><div class="st">AI 生图</div><div class="sd">把定好的配色、排版、美工风格与内容一起交给生图 AI 生成页面，统一视觉语言。</div></div>
+      <div class="step"><div class="n">5</div><div class="st">收尾修正</div><div class="sd">逐页检查错字、排版高度雷同、图片乱码——把问题位置圈出来，细分素材 / 提示词重新生成，指定替换哪一页、哪张图。</div></div>
+    </div>
+    <p class="exp-note">说明：产业分析、招展策略、收益测算等策划内容由小组其他成员完成；我负责的是 PPT 制作全流程——内容提炼、分页框架、视觉风格定义与生成修正。这一步本质是「把专业内容翻译成观众 8 秒能看懂的页面」。</p>
+  </div>
+
+  <p class="zoom-tip">成片页面（点击放大看细节）：</p>
+  <div class="shot-strip">
+    <figure class="shot">
+      <img src="assets/expo_cover.jpg" data-full="assets/full/expo_cover.jpg" loading="lazy" alt="会展PPT封面">
+      <figcaption>封面 · 主视觉<span class="s-n">数智赋能 · 健康未来</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/expo_logic.jpg" data-full="assets/full/expo_logic.jpg" loading="lazy" alt="会展PPT汇报逻辑页">
+      <figcaption>汇报逻辑 · 五段主线<span class="s-n">产业机会 → 落地运营</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/expo_overview.jpg" data-full="assets/full/expo_overview.jpg" loading="lazy" alt="会展PPT项目概况页">
+      <figcaption>项目概况 · 一页看懂<span class="s-n">时间 / 地点 / 面积 / 核心活动</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/expo_strategy.jpg" data-full="assets/full/expo_strategy.jpg" loading="lazy" alt="会展PPT招展策略页">
+      <figcaption>招展策略 · 时间轴<span class="s-n">对象 × 渠道 × 进度</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/expo_summary.jpg" data-full="assets/full/expo_summary.jpg" loading="lazy" alt="会展PPT总结展望页">
+      <figcaption>总结展望 · 收尾页<span class="s-n">四维总结 + 未来展望</span></figcaption>
+    </figure>
+  </div>
+
+  <p style="text-align:center;margin-top:26px">
+    <a class="pdf-btn" href="assets/full/远华杯会展策划案答辩PPT.pdf" target="_blank">查看完整答辩 PPT（18 页 PDF）↗</a>
+  </p>
+</section>
+
 <footer>
   <div class="name">蒋宏鹏</div>
   <div>135-1093-2794 · 2567225634@qq.com</div>
-  <p class="note">本页所有账号数据均来自本人抖音 / 小红书后台真实数据 · 策划案与成片均为本人制作</p>
+  <p class="note">本页所有账号数据均来自本人抖音 / 小红书后台真实数据 · 学院奖策划案与品牌视频为本人独立制作 · 会展 PPT 中策划内容由小组完成、PPT 制作由本人完成</p>
 </footer>
 
 </div>
@@ -971,16 +1026,22 @@
   secs.forEach(function(s){ board.appendChild(s); });
 
   var ORDERS = {
-    default: ['s1','s2','s3','s4','s5'],
-    aigc:    ['s4','s2','s1','s5','s3'],
-    plan:    ['s2','s4','s1','s5','s3'],
-    tour:    ['s4','s2','s1','s5','s3']
+    default: ['s1','s2','s3','s4','s5','s6'],
+    aigc:    ['s4','s6','s2','s1','s5','s3'],
+    plan:    ['s2','s6','s4','s1','s5','s3'],
+    tour:    ['s6','s2','s4','s1','s5','s3']
   };
+  var SRC = {aigc:'AIGC / AI 视频岗', plan:'乙方广告策划岗', tour:'文旅 / 会奖策划岗'};
   var NOTES = {
     default: '默认顺序按作品类型排列。切到具体岗位后，<b>最相关的那块会被放到最前面</b>，顶部目录同步重排——你不需要从头翻。',
-    aigc: '<b>AIGC / AI 视频岗</b>：已把 04 品牌视频（2 天 AI 全流程交付）与 02 学院奖 AI 物料置顶，01 实验方法论紧随其后——证明我不只会生成，还会判断什么值得生成。',
-    plan: '<b>乙方广告策划岗</b>：已把 02 学院奖 26 页策划案置顶（洞察 → IP → 三阶段链路 → 物料 → 迭代交付），04 品牌视频作为视觉与叙事能力的补充证据。',
-    tour: '<b>文旅 / 会奖岗</b>：已把 04《一席四季，岭南礼遇》置顶（岭南文化叙事 + 文旅品牌视频全流程），02 学院奖含线下活动链路设计。会展类实物作品暂缺，见页脚说明。'
+    aigc: '<b>AIGC / AI 视频岗</b>：已把 04 品牌视频（2 天 AI 全流程交付）与 06 会展答辩 PPT（18 页 AI 提炼 + 生图）置顶，02 学院奖 AI 物料紧随其后——证明我不只会生成，还会判断什么值得生成。',
+    plan: '<b>乙方广告策划岗</b>：已把 02 学院奖 26 页策划案置顶（洞察 → IP → 三阶段链路 → 物料 → 迭代交付）；06 会展 PPT 展示「把长文档浓缩成答辩逻辑」的交付能力，04 品牌视频作为视觉与叙事能力的补充证据。',
+    tour: '<b>文旅 / 会奖岗</b>：已把 06 会展答辩 PPT（远华杯初赛一等奖）置顶——会展题材 + 把策划案讲明白的交付能力；04《一席四季，岭南礼遇》展示文旅品牌视频全流程，02 学院奖含线下活动链路设计。'
+  };
+  var QR_NOTES = {
+    aigc: '这份作品集来自<b>「AIGC / AI 视频岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>，目录顺序同步调整。想看原顺序，点「默认顺序」即可。',
+    plan: '这份作品集来自<b>「乙方广告策划岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>，目录顺序同步调整。想看原顺序，点「默认顺序」即可。',
+    tour: '这份作品集来自<b>「文旅 / 会奖策划岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>，目录顺序同步调整。想看原顺序，点「默认顺序」即可。'
   };
 
   var tocGrid = document.querySelector('.toc-grid');
@@ -988,17 +1049,31 @@
   var note = document.getElementById('pitchNote');
   var btns = Array.prototype.slice.call(document.querySelectorAll('.pbtn'));
 
-  function apply(mode){
+  function apply(mode, fromQr){
     ORDERS[mode].forEach(function(id){
       var el = document.getElementById(id);
       if(el) board.appendChild(el);
       var card = tocItems.filter(function(c){ return c.getAttribute('href') === '#' + id; })[0];
       if(card) tocGrid.appendChild(card);
     });
-    note.innerHTML = NOTES[mode];
+    note.innerHTML = (fromQr && QR_NOTES[mode]) ? QR_NOTES[mode] : NOTES[mode];
     btns.forEach(function(b){ b.classList.toggle('is-on', b.dataset.mode === mode); });
   }
-  btns.forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.mode); }); });
+  btns.forEach(function(b){ b.addEventListener('click', function(){
+    apply(b.dataset.mode);
+    try{
+      var u = new URL(location.href);
+      if(b.dataset.mode === 'default') u.searchParams.delete('p');
+      else u.searchParams.set('p', b.dataset.mode);
+      history.replaceState(null, '', u);
+    }catch(e){}
+  }); });
+
+  /* 简历二维码带参打开：?p=aigc / ?p=plan / ?p=tour —— 直接按该岗位重排，HR 无需自己点 */
+  try{
+    var qp = new URLSearchParams(location.search).get('p');
+    if(qp && ORDERS[qp]) apply(qp, true);
+  }catch(e){}
 })();
 </script>
 </body>
