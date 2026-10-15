@@ -182,6 +182,10 @@
   /* 宽幅后台数据卡（横条截图），同样铺满整行 */
   .shot.wide{width:100%}
   .shot.wide img{aspect-ratio:auto;height:auto;object-fit:contain;background:#fff}
+  /* 横版页面图（会展 PPT 16:9），3 列排布 */
+  .shot-strip.land{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+  .shot.land img{aspect-ratio:16/9;object-fit:cover;background:#F1EDE6}
+  @media(max-width:640px){.shot-strip.land{grid-template-columns:1fr 1fr}}
   .evidence-lg{max-width:440px;margin:14px 0 4px}
   .evidence-lg img{width:100%;border:1px solid var(--line);border-radius:10px;cursor:zoom-in;background:#fff}
   .evidence-lg figcaption{font-size:12px;color:#8E8A83;margin-top:6px;line-height:1.6}
@@ -797,24 +801,24 @@
   </div>
 
   <p class="zoom-tip">成片页面（点击放大看细节）：</p>
-  <div class="shot-strip">
-    <figure class="shot">
+  <div class="shot-strip land">
+    <figure class="shot land">
       <img src="assets/expo_cover.jpg" data-full="assets/full/expo_cover.jpg" loading="lazy" alt="会展PPT封面">
       <figcaption>封面 · 主视觉<span class="s-n">数智赋能 · 健康未来</span></figcaption>
     </figure>
-    <figure class="shot">
+    <figure class="shot land">
       <img src="assets/expo_logic.jpg" data-full="assets/full/expo_logic.jpg" loading="lazy" alt="会展PPT汇报逻辑页">
       <figcaption>汇报逻辑 · 五段主线<span class="s-n">产业机会 → 落地运营</span></figcaption>
     </figure>
-    <figure class="shot">
+    <figure class="shot land">
       <img src="assets/expo_overview.jpg" data-full="assets/full/expo_overview.jpg" loading="lazy" alt="会展PPT项目概况页">
       <figcaption>项目概况 · 一页看懂<span class="s-n">时间 / 地点 / 面积 / 核心活动</span></figcaption>
     </figure>
-    <figure class="shot">
+    <figure class="shot land">
       <img src="assets/expo_strategy.jpg" data-full="assets/full/expo_strategy.jpg" loading="lazy" alt="会展PPT招展策略页">
       <figcaption>招展策略 · 时间轴<span class="s-n">对象 × 渠道 × 进度</span></figcaption>
     </figure>
-    <figure class="shot">
+    <figure class="shot land">
       <img src="assets/expo_summary.jpg" data-full="assets/full/expo_summary.jpg" loading="lazy" alt="会展PPT总结展望页">
       <figcaption>总结展望 · 收尾页<span class="s-n">四维总结 + 未来展望</span></figcaption>
     </figure>
