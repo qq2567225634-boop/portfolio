@@ -1034,14 +1034,14 @@
     plan:    ['s2','s6','s4','s1','s5','s3'],
     tour:    ['s6','s2','s4','s1','s5','s3']
   };
-  /* 目录编号固定 01–06 不随重排变化，HR 按编号跳转即可 */
+  /* 目录随正文一起重排：顺序与编号都按该岗位的阅读顺序（01–06 连续），与正文标题一一对应 */
 
   function apply(mode){
     ORDERS[mode].forEach(function(id){
       var el = document.getElementById(id);
       if(el) board.appendChild(el);
     });
-    /* 正文标题数字按阅读顺序重排为 01–06（目录仍按原编号，便于按编号跳转） */
+    /* 正文标题数字 + 目录数字都按阅读顺序重排为 01–06 */
     var pos = {};
     var secs = board.querySelectorAll(':scope > section[id^="s"]');
     secs.forEach(function(s, i){
@@ -1049,6 +1049,18 @@
       var no = s.querySelector('.sec-no');
       if(no) no.textContent = pos[s.id];
     });
+    /* 目录项搬到与正文相同的顺序，编号同步 */
+    var grid = document.querySelector('.toc-grid');
+    if(grid){
+      ORDERS[mode].forEach(function(id, i){
+        var item = grid.querySelector('a.toc-item[href="#' + id + '"]');
+        if(item){
+          grid.appendChild(item);
+          var no = item.querySelector('.toc-no');
+          if(no) no.textContent = ('0' + (i + 1)).slice(-2);
+        }
+      });
+    }
     /* 内文引用里的板块编号同步为重排后的序号 */
     document.querySelectorAll('a.jump').forEach(function(a){
       var t = document.querySelector(a.getAttribute('href'));
