@@ -266,10 +266,6 @@
   .jump{color:var(--accent);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--accent);padding:0 1px}
   .jump:hover{background:#FBEAE2}
   .jump::after{content:" ↗";font-size:.82em}
-  /* 从简历二维码带参打开时的说明（仅此时显示） */
-  .qr-note{margin:2px 0 22px;padding:13px 18px;background:linear-gradient(180deg,#FDF9F4,#FFFFFF);
-           border:1px solid var(--line);border-radius:var(--radius);font-size:13.5px;color:#45454B;line-height:1.75}
-  .qr-note b{color:var(--accent)}
   /* 对照组 B 六张数据卡：3 列 × 2 行 */
   .shot-strip.cols3{grid-template-columns:repeat(3,1fr)}
   @media(max-width:640px){.shot-strip.cols3{grid-template-columns:repeat(2,1fr)}}
@@ -1039,29 +1035,18 @@
     tour:    ['s6','s2','s4','s1','s5','s3']
   };
   /* 目录编号固定 01–06 不随重排变化，HR 按编号跳转即可 */
-  var QR_NOTES = {
-    aigc: '这份作品集来自<b>「AIGC / AI 视频岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>。目录仍按原编号 01–06 排列，点目录可跳去任意板块。',
-    plan: '这份作品集来自<b>「乙方广告策划岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>。目录仍按原编号 01–06 排列，点目录可跳去任意板块。',
-    tour: '这份作品集来自<b>「文旅 / 会奖策划岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>。目录仍按原编号 01–06 排列，点目录可跳去任意板块。'
-  };
 
-  function apply(mode, fromQr){
+  function apply(mode){
     ORDERS[mode].forEach(function(id){
       var el = document.getElementById(id);
       if(el) board.appendChild(el);
     });
-    if(fromQr && QR_NOTES[mode]){
-      var n = document.createElement('p');
-      n.className = 'qr-note';
-      n.innerHTML = QR_NOTES[mode];
-      board.insertBefore(n, board.firstChild);
-    }
   }
 
   /* 简历二维码带参打开：直接按该岗位重排，HR 无需自己点 */
   try{
     var qp = new URLSearchParams(location.search).get('p');
-    if(qp && ORDERS[qp]) apply(qp, true);
+    if(qp && ORDERS[qp]) apply(qp);
   }catch(e){}
 })();
 </script>
