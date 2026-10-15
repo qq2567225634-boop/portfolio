@@ -88,17 +88,19 @@
   .chip{font-size:12px;padding:3px 10px;border-radius:6px;background:#F1EDE6;color:var(--ink2)}
   .chip.up{background:#FBEAE2;color:var(--accent);font-weight:600}
   .chip.down{background:#E8F0EC;color:var(--green);font-weight:600}
-  /* 峰值项默认不突出，仅悬停时高亮 */
-  .tl-item.peak:hover .tl-dot{border-color:var(--accent);color:var(--accent)}
-  .tl-item.peak:hover .tl-body{border-color:var(--accent);box-shadow:0 2px 14px rgba(180,83,42,.08)}
-  .tl-item.peak:hover .t{color:var(--accent)}
+  /* 时间轴各项悬停时高亮（峰值项同样仅悬停突出，默认不特殊显示） */
+  .tl-item:hover .tl-dot{border-color:var(--accent);color:var(--accent)}
+  .tl-item:hover .tl-body{border-color:var(--accent);box-shadow:0 2px 14px rgba(180,83,42,.08)}
+  .tl-item:hover .t{color:var(--accent)}
 
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   @media(max-width:760px){.two-col{grid-template-columns:1fr}}
 
   .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
   @media(max-width:600px){.stat-row{grid-template-columns:repeat(3,1fr);gap:8px}}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 10px;text-align:center}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 10px;text-align:center;transition:.18s}
+  .stat:hover{border-color:var(--accent);box-shadow:0 2px 14px rgba(180,83,42,.08);transform:translateY(-2px)}
+  .stat:hover .l{color:var(--ink)}
   .stat .n{font-size:clamp(20px,4vw,28px);font-weight:800;color:var(--accent)}
   .stat .l{font-size:12px;color:var(--ink2);margin-top:4px;line-height:1.4}
 
@@ -207,7 +209,10 @@
   .exp-note b{color:var(--ink2)}
   /* 五步流程（会展 PPT） */
   .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0 2px}
-  .flow .step{border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:#FCFBF9;position:relative}
+  .flow .step{border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:#FCFBF9;position:relative;transition:.18s}
+  .flow .step:hover{border-color:var(--accent);box-shadow:0 2px 14px rgba(180,83,42,.08);transform:translateY(-2px)}
+  .flow .step:hover .st{color:var(--accent)}
+  .flow .step:hover .n{color:#E3D2C2}
   .flow .step .n{position:absolute;top:10px;right:12px;font-size:22px;font-weight:800;color:#EDE7DF;line-height:1}
   .flow .step .st{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:5px}
   .flow .step .sd{font-size:12.5px;color:var(--ink2);line-height:1.65}
