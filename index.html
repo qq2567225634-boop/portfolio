@@ -8,6 +8,7 @@
   :root{
     --bg:#F7F5F1; --panel:#FFFFFF; --ink:#1B1B1D; --ink2:#5A5A5F; --line:#E7E2D9;
     --accent:#B4532A; --green:#2F5D50; --gold:#8C6A2F;
+    --ppt:#0976C9; --ppt-lt:#6FB2E8; --ppt-dk:#055A9B;
     --radius:14px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -45,8 +46,11 @@
   h2{font-size:clamp(22px,4vw,28px);font-weight:700}
   .sec-sub{color:#45454B;font-size:15.5px;line-height:1.85;margin-bottom:26px;max-width:760px}
   .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px}
-  .tag{font-size:12.5px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink2);background:var(--panel)}
+  .tag{font-size:12.5px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink2);
+       background:var(--panel);transition:.16s;cursor:default}
+  .tag:hover{border-color:var(--accent);color:var(--accent);background:#FDF6F2}
   .tag.hl{border-color:var(--accent);color:var(--accent);font-weight:600}
+  .tag.hl:hover{background:#FBEAE2}
 
   .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;margin-bottom:20px}
   .card h3{font-size:18px;margin-bottom:10px}
@@ -75,18 +79,19 @@
   .tl-dot{
     width:42px;height:42px;border-radius:50%;background:var(--panel);
     border:2px solid var(--line);display:flex;align-items:center;justify-content:center;
-    font-weight:700;font-size:15px;color:var(--ink2);z-index:1;
+    font-weight:700;font-size:15px;color:var(--ink2);z-index:1;transition:.18s;
   }
-  .tl-item.peak .tl-dot{border-color:var(--accent);color:var(--accent)}
-  .tl-body{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px}
+  .tl-body{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;transition:.18s}
   .tl-body .t{font-weight:600;font-size:16px;margin-bottom:5px;line-height:1.6}
   .tl-body .v{font-size:14px;color:#45454B;line-height:1.8}
   .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .chip{font-size:12px;padding:3px 10px;border-radius:6px;background:#F1EDE6;color:var(--ink2)}
   .chip.up{background:#FBEAE2;color:var(--accent);font-weight:600}
   .chip.down{background:#E8F0EC;color:var(--green);font-weight:600}
-  .tl-item.peak .tl-body{border-color:var(--accent);box-shadow:0 2px 14px rgba(180,83,42,.08)}
-  .tl-item.peak .t{color:var(--accent)}
+  /* 峰值项默认不突出，仅悬停时高亮 */
+  .tl-item.peak:hover .tl-dot{border-color:var(--accent);color:var(--accent)}
+  .tl-item.peak:hover .tl-body{border-color:var(--accent);box-shadow:0 2px 14px rgba(180,83,42,.08)}
+  .tl-item.peak:hover .t{color:var(--accent)}
 
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   @media(max-width:760px){.two-col{grid-template-columns:1fr}}
@@ -256,6 +261,10 @@
   .jump{color:var(--accent);font-weight:600;cursor:pointer;border-bottom:1px dashed var(--accent);padding:0 1px}
   .jump:hover{background:#FBEAE2}
   .jump::after{content:" ↗";font-size:.82em}
+  /* 从简历二维码带参打开时的说明（仅此时显示） */
+  .qr-note{margin:2px 0 22px;padding:13px 18px;background:linear-gradient(180deg,#FDF9F4,#FFFFFF);
+           border:1px solid var(--line);border-radius:var(--radius);font-size:13.5px;color:#45454B;line-height:1.75}
+  .qr-note b{color:var(--accent)}
   /* 对照组 B 六张数据卡：3 列 × 2 行 */
   .shot-strip.cols3{grid-template-columns:repeat(3,1fr)}
   @media(max-width:640px){.shot-strip.cols3{grid-template-columns:repeat(2,1fr)}}
@@ -278,18 +287,13 @@
   .cap-go::after{content:" ↗"}
   @media(max-width:860px){.cap-grid{grid-template-columns:1fr}}
 
-  /* ---------- 一稿三投 ---------- */
-  .pitch{margin:6px 0 24px;padding:16px 20px;background:linear-gradient(180deg,#FDF9F4,#FFFFFF);
-         border:1px solid var(--line);border-radius:var(--radius)}
-  .pitch-label{font-size:12px;letter-spacing:.2em;color:var(--ink2);font-weight:600;margin-bottom:11px}
-  .pitch-btns{display:flex;flex-wrap:wrap;gap:9px}
-  .pbtn{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--ink2);
-        border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:600;cursor:pointer;
-        transition:.16s;font-family:inherit}
-  .pbtn:hover{border-color:var(--accent);color:var(--accent)}
-  .pbtn.is-on{background:var(--accent);border-color:var(--accent);color:#fff}
-  .pitch-note{margin-top:12px;font-size:13.5px;color:#45454B;line-height:1.75}
-  .pitch-note b{color:var(--accent)}
+  /* ---------- 图片悬停：PPT 主色嵌套框 ---------- */
+  .shot img,.plan-shot img,.xhs-row img,.evidence-lg img,.shot.wide img{
+    transition:box-shadow .18s ease,border-color .18s ease}
+  .shot img:hover,.plan-shot img:hover,.xhs-row img:hover,.evidence-lg img:hover,.shot.wide img:hover{
+    box-shadow:0 0 0 3px var(--panel),0 0 0 5px var(--ppt),
+               0 0 0 8px var(--panel),0 0 0 10px var(--ppt-lt);
+    border-color:var(--ppt)}
 </style>
 </head>
 <body>
@@ -300,7 +304,7 @@
 <header class="hero">
   <div class="kicker">PORTFOLIO · 2026</div>
   <h1>蒋宏鹏<span class="thin">的作品集</span></h1>
-  <p class="pos">求职方向：AIGC 创意 / 广告策划 / 文旅策划（作品集支持按岗位重排，见下方「一稿三投」） · 广东外语外贸大学南国商学院 · 市场营销</p>
+  <p class="pos">求职方向：AIGC 创意 / 广告策划 / 文旅策划 · 广东外语外贸大学南国商学院 · 市场营销</p>
   <div class="method">
     「一次只改一个变量，让数据替我下结论。」
     <small>下面所有案例，都是这句话在不同场景里的做法。</small>
@@ -315,7 +319,7 @@
 <!-- ================= 能力地图（30 秒入口） ================= -->
 <section class="capmap" id="capmap">
   <div class="sec-head"><span class="sec-no">MAP</span><h2>能力地图：三条线，一份作品集</h2></div>
-  <p class="sec-sub">如果只有 30 秒，看这里就够了。我把全部作品归成三条能力线——点任意一条直接跳到对应证据。也可以用下面的「一稿三投」，让作品集按你招的岗位重新排序。</p>
+  <p class="sec-sub">如果只有 30 秒，看这里就够了。我把全部作品归成三条能力线——点任意一条直接跳到对应证据。</p>
   <div class="cap-grid">
     <a class="cap-card" href="#s2">
       <span class="cap-tag">创意策划</span>
@@ -363,18 +367,6 @@
     <a class="toc-item" href="#s6"><span class="toc-no">06</span><span class="toc-name">会展答辩 PPT（远华杯）</span></a>
   </div>
 </nav>
-
-<!-- ================= 一稿三投 ================= -->
-<div class="pitch" id="pitch">
-  <div class="pitch-label">一稿三投 · 按你招的岗位重排这份作品集</div>
-  <div class="pitch-btns">
-    <button class="pbtn is-on" type="button" data-mode="default">默认顺序</button>
-    <button class="pbtn" type="button" data-mode="aigc">投 AIGC / AI 视频岗</button>
-    <button class="pbtn" type="button" data-mode="plan">投乙方广告策划岗</button>
-    <button class="pbtn" type="button" data-mode="tour">投文旅 / 会奖策划岗</button>
-  </div>
-  <p class="pitch-note" id="pitchNote">默认顺序按作品类型排列。切到具体岗位后，<b>最相关的那块会被放到最前面</b>，顶部目录同步重排——你不需要从头翻。</p>
-</div>
 
 <!-- ================= 01 数据方法论 ================= -->
 <section id="s1">
@@ -481,7 +473,7 @@
   <div class="sec-head"><span class="sec-no">02</span><h2>大广节学院奖策划案《别让痒占上风》</h2></div>
   <p class="sec-sub">中国大学生广告艺术节学院奖 2026 春季征集大赛（中国广告协会主办，覆盖全国 1830 所高校），命题品牌：芙美松（仙琚制药）。<b>最终获优秀奖。</b>策划案由我独立制作——从洞察、IP 设计到全部页面制作——实际制作约 1 个月，经历 3 次大版本重构。</p>
   <div class="tags">
-    <span class="tag hl">优秀奖</span>    <span class="tag">原创 IP</span><span class="tag">整合营销策划</span><span class="tag">AI 物料落地</span><span class="tag">1 个月 · 3 次大版本重构</span>
+    <span class="tag hl">优秀奖</span> <span class="tag">原创 IP</span><span class="tag">整合营销策划</span><span class="tag">AI 物料落地</span><span class="tag">1 个月 · 3 次大版本重构</span>
   </div>
   <p class="zoom-tip">点击任意图片可放大查看细节——放大时加载<b>原分辨率高清图</b>，支持滚轮 / 双指缩放与拖动平移，可放到 8 倍看清物料上的小字</p>
 
@@ -1018,15 +1010,15 @@
 })();
 </script>
 <script>
-/* ---------- 一稿三投：按岗位重排板块 + 目录 ---------- */
+/* ---------- 按岗位重排板块（简历二维码带参打开 ?p=aigc / ?p=plan / ?p=tour） ---------- */
 (function(){
   var wrap = document.querySelector('.wrap');
+  var toc = document.querySelector('.toc');
   var secs = Array.prototype.slice.call(wrap.querySelectorAll(':scope > section[id^="s"]'));
   if(!secs.length) return;
-  var pitch = document.getElementById('pitch');
   var board = document.createElement('div');
   board.id = 'board';
-  wrap.insertBefore(board, pitch.nextSibling);
+  wrap.insertBefore(board, toc.nextSibling);
   secs.forEach(function(s){ board.appendChild(s); });
 
   var ORDERS = {
@@ -1035,45 +1027,27 @@
     plan:    ['s2','s6','s4','s1','s5','s3'],
     tour:    ['s6','s2','s4','s1','s5','s3']
   };
-  var SRC = {aigc:'AIGC / AI 视频岗', plan:'乙方广告策划岗', tour:'文旅 / 会奖策划岗'};
-  var NOTES = {
-    default: '默认顺序按作品类型排列。切到具体岗位后，<b>最相关的那块会被放到最前面</b>，顶部目录同步重排——你不需要从头翻。',
-    aigc: '<b>AIGC / AI 视频岗</b>：已把 04 品牌视频（2 天 AI 全流程交付）与 06 会展答辩 PPT（18 页 AI 提炼 + 生图）置顶，02 学院奖 AI 物料紧随其后——证明我不只会生成，还会判断什么值得生成。',
-    plan: '<b>乙方广告策划岗</b>：已把 02 学院奖 26 页策划案置顶（洞察 → IP → 三阶段链路 → 物料 → 迭代交付）；06 会展 PPT 展示「把长文档浓缩成答辩逻辑」的交付能力，04 品牌视频作为视觉与叙事能力的补充证据。',
-    tour: '<b>文旅 / 会奖岗</b>：已把 06 会展答辩 PPT（远华杯初赛一等奖）置顶——会展题材 + 把策划案讲明白的交付能力；04《一席四季，岭南礼遇》展示文旅品牌视频全流程，02 学院奖含线下活动链路设计。'
-  };
+  /* 目录编号固定 01–06 不随重排变化，HR 按编号跳转即可 */
   var QR_NOTES = {
-    aigc: '这份作品集来自<b>「AIGC / AI 视频岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>，目录顺序同步调整。想看原顺序，点「默认顺序」即可。',
-    plan: '这份作品集来自<b>「乙方广告策划岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>，目录顺序同步调整。想看原顺序，点「默认顺序」即可。',
-    tour: '这份作品集来自<b>「文旅 / 会奖策划岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>，目录顺序同步调整。想看原顺序，点「默认顺序」即可。'
+    aigc: '这份作品集来自<b>「AIGC / AI 视频岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>。目录仍按原编号 01–06 排列，点目录可跳去任意板块。',
+    plan: '这份作品集来自<b>「乙方广告策划岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>。目录仍按原编号 01–06 排列，点目录可跳去任意板块。',
+    tour: '这份作品集来自<b>「文旅 / 会奖策划岗」简历</b>里的二维码，打开时已按该方向自动重排：<b>最相关的证据放在最前面</b>。目录仍按原编号 01–06 排列，点目录可跳去任意板块。'
   };
-
-  var tocGrid = document.querySelector('.toc-grid');
-  var tocItems = Array.prototype.slice.call(tocGrid.children);
-  var note = document.getElementById('pitchNote');
-  var btns = Array.prototype.slice.call(document.querySelectorAll('.pbtn'));
 
   function apply(mode, fromQr){
     ORDERS[mode].forEach(function(id){
       var el = document.getElementById(id);
       if(el) board.appendChild(el);
-      var card = tocItems.filter(function(c){ return c.getAttribute('href') === '#' + id; })[0];
-      if(card) tocGrid.appendChild(card);
     });
-    note.innerHTML = (fromQr && QR_NOTES[mode]) ? QR_NOTES[mode] : NOTES[mode];
-    btns.forEach(function(b){ b.classList.toggle('is-on', b.dataset.mode === mode); });
+    if(fromQr && QR_NOTES[mode]){
+      var n = document.createElement('p');
+      n.className = 'qr-note';
+      n.innerHTML = QR_NOTES[mode];
+      board.insertBefore(n, board.firstChild);
+    }
   }
-  btns.forEach(function(b){ b.addEventListener('click', function(){
-    apply(b.dataset.mode);
-    try{
-      var u = new URL(location.href);
-      if(b.dataset.mode === 'default') u.searchParams.delete('p');
-      else u.searchParams.set('p', b.dataset.mode);
-      history.replaceState(null, '', u);
-    }catch(e){}
-  }); });
 
-  /* 简历二维码带参打开：?p=aigc / ?p=plan / ?p=tour —— 直接按该岗位重排，HR 无需自己点 */
+  /* 简历二维码带参打开：直接按该岗位重排，HR 无需自己点 */
   try{
     var qp = new URLSearchParams(location.search).get('p');
     if(qp && ORDERS[qp]) apply(qp, true);
