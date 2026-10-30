@@ -131,6 +131,8 @@
   .shotlist ol{padding-left:22px;color:var(--ink2);font-size:15px}
   .shotlist li{margin-bottom:6px}
   .shotlist li b{color:var(--ink)}
+  .shotlist li .sl{display:inline-block;margin-left:7px;font-size:11.5px;color:var(--green);background:#EFF3F1;border:1px solid #DCE6E2;border-radius:5px;padding:0 7px;letter-spacing:.02em;vertical-align:1.5px;transition:.18s}
+  .shotlist li:hover .sl{background:var(--green);color:#fff;border-color:var(--green)}
 
   .pdf-btn{
     display:inline-flex;align-items:center;gap:8px;margin-top:6px;
@@ -608,18 +610,30 @@
   <div class="card shotlist">
     <h3>分镜结构（藏露式叙事）</h3>
     <ol>
-      <li><b>片头标版</b>——珠江新城清晨天际线，Vision3 250D 暖调</li>
-      <li><b>城市 → 酒店</b>——超远无缝变焦推近旋转门，「被带进去」而非「摊开看」</li>
-      <li><b>进入大堂</b>——玻璃反光 → 大理石地面 → 花艺 → 服务生，由物到人，Eterna 500T 清冷影调</li>
-      <li><b>客房空间美学</b>——慢推揭示窗外广州塔</li>
-      <li><b>服务细节</b>——双手递茶特写，手部轮廓 + 温柔注视</li>
-      <li><b>岭南美食</b>——粤式点心微距环绕，Velvia 50 超饱和食欲感</li>
-      <li><b>无边泳池 / 岭南文化</b>——黄昏水面倒影，广绣屏风收尾</li>
+      <li><b>片头标版</b><span class="sl">远景 · 固定</span>——珠江新城清晨天际线，Vision3 250D 暖调</li>
+      <li><b>城市 → 酒店</b><span class="sl">超远景→全景 · 无缝变焦推近</span>——推近旋转门，「被带进去」而非「摊开看」</li>
+      <li><b>进入大堂</b><span class="sl">特写→中景 · 递进推移</span>——玻璃反光 → 大理石地面 → 花艺 → 服务生，由物到人，Eterna 500T 清冷影调</li>
+      <li><b>客房空间美学</b><span class="sl">中景 · 慢推</span>——推至窗前揭示广州塔</li>
+      <li><b>服务细节</b><span class="sl">特写 · 固定</span>——双手递茶，手部轮廓 + 温柔注视</li>
+      <li><b>岭南美食</b><span class="sl">微距特写 · 环绕</span>——粤式点心，Velvia 50 超饱和食欲感</li>
+      <li><b>无边泳池 / 岭南文化</b><span class="sl">全景 · 缓慢横移</span>——黄昏水面倒影，广绣屏风收尾</li>
     </ol>
+  </div>
+
+  <div class="card">
+    <h3>AIGC 画面的可控性：四个约束点</h3>
+    <p>7 个镜头分别生成，AI 每次出图相互独立——镜头之间天然会出现空间、光线、人物对不上。制作时没有等结果出来再筛，而是在生成之前先把变量锁住。</p>
+    <div class="flow">
+      <div class="step"><div class="n">1</div><div class="st">场景基准</div><div class="sd">先生成大堂背景图作为全片视觉基准，后续镜头以它为参照；同时给到酒店实拍图与建筑资料，由 AI 吸收后转写为提示词。提示词内限定装修风格与全片时间线，不让 AI 自行推测空间结构。</div></div>
+      <div class="step"><div class="n">2</div><div class="st">人物素材</div><div class="sd">提前生成人物三视图与饰品细节图作为参考；生成时提示词强调与参考图中指定元素保持一致。</div></div>
+      <div class="step"><div class="n">3</div><div class="st">影调衔接</div><div class="sd">全片按段落分用三档电影影调（250D 暖调 / 500T 清冷 / Velvia 50 超饱和），段落之间以剪辑转场衔接，避免直接切换造成的色块断层。</div></div>
+      <div class="step"><div class="n">4</div><div class="st">排除项预置</div><div class="sd">提示词中预先写明禁止出现的元素（畸变肢体、多余文字、穿帮反射），把废片压力留在生成之前，而不是剪辑阶段。</div></div>
+    </div>
+    <p class="exp-note">实际废片率：首帧通常废 1–2 版；视频约每生成 1–2 个片段废 1–2 版。7 个镜头在 2 天内交付，返工成本主要消耗在这两步。</p>
   </div>
 </section>
 
-<!-- ================= 05 抖音（待补） ================= -->
+<!-- ================= 05 抖音 ================= -->
 <section id="s5">
   <div class="sec-head"><span class="sec-no">05</span><h2>抖音 · 31 条作品（2025.09 – 2026.09）</h2></div>
   <p class="sec-sub">一年里发过 31 条，主要是两个阶段：<b>翻唱期 22 条清唱</b>——用两组单变量对照找出真正有用的动作；<b>随笔期 7 条</b>——一次完整的赛道切换实验。所有数据取自账号后台，截图只是佐证，可点击放大看原图。</p>
@@ -737,7 +751,7 @@
         <tr class="low"><td>⑦</td><td>反向测试：AI 翻拍同风格内容</td><td>—</td><td>7</td><td>—</td><td>—</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:14px"><b>三条结论：</b>① 篇幅（字数）不影响触达规模——② 压缩至 303 字后浏览反而微涨；② 关键在<b>情绪形态</b>——短诗用 34 字拿到全序列最高的点赞率 3.6%；③ <b>同一题材重复第三次就失效</b>——④ 到 ⑤ 浏览掉到五分之一，而 ⑥ 字数与质量都接近 ④，也只有 875。即：<b>篇幅影响触达规模、内容形态影响互动率、题材新鲜度决定衰减速度</b>。</p>
+    <p style="margin-top:14px">注：⑦ 为 AI 翻拍的反向测试样本，仅 7 次播放，平台未产生可统计的互动数据，故字数与评 / 藏记为「—」。逐条解读见<a class="jump" href="#expB">01 板块的实验 B</a>，本板块提供后台截图作为原始佐证。</p>
     <p class="zoom-tip">下面是 7 条作品的后台截图缩略图，点击放大可看原分辨率</p>
     <div class="shot-strip">
       <figure class="shot">
